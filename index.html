@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mahmoud Zohdi</title>
-  </head>
-  <body>
-    <p style="font-size: 50px;">
-      Coming soon
-    </p>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mahmoud Zohdi</title>
+</head>
+
+<body>
+  <p style="font-size: 50px;">
+    Coming soon
+  </p>
+  <h1 id="name"></h1>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $.ajax({
+      url: "https://reqres.in/api/users",
+      type: "POST",
+      data: {
+        name: "paul rudd",
+        movies: ["I Love You Man", "Role Models"]
+      },
+      success: function (response) {
+        console.log(response);
+        $('#name').text(response.name);
+      }
+    });
+  </script>
+</body>
+
 </html>

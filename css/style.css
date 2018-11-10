@@ -8,6 +8,10 @@ body {
   padding: 0;
 }
 
+a{
+  text-decoration: none;
+}
+
 .profile-content {
   display: flex;
   height: 100vh;
@@ -25,4 +29,22 @@ body {
   margin: 0 auto 15px;
   border-radius: 50%;
   display: block;
+}
+
+.social-links{
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.social-links li{
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.social-links img{
+  max-width: 20px;
+  height: 20px;
 }

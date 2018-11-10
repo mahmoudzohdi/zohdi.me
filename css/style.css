@@ -4,5 +4,25 @@
 
 body {
   background-image: url(../images/pattern.jpg);
-  
+  margin: 0;
+  padding: 0;
+}
+
+.profile-content {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-name {
+  font-size: 26px;
+  text-align: center;
+}
+
+.my-pic {
+  width: 130px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  display: block;
 }

@@ -29,9 +29,9 @@ a{
   margin: 0 auto 15px;
   border-radius: 50%;
   display: block;
-  box-shadow: 0 0 0 4px #f3f3f3, 0 0 0 7px #eca738;
-  -moz-box-shadow: 0 0 0 4px #f3f3f3, 0 0 0 7px #eca738;
-  -webkit-box-shadow: 0 0 0 4px #f3f3f3, 0 0 0 7px #eca738;
+  box-shadow: 0 0 0 2px #ffc870;
+  -moz-box-shadow: 0 0 0 2px #ffc870;
+  -webkit-box-shadow: 0 0 0 2px #ffc870;
 
 }
 

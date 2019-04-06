@@ -18,10 +18,20 @@ a{
   align-items: center;
   justify-content: center;
 }
-
+figure {
+  margin: 0;
+}
 .my-name {
   font-size: 26px;
   text-align: center;
+  margin-bottom: 8px;
+}
+.job-title{
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 25px;
 }
 
 .my-pic {

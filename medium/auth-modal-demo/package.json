@@ -2,6 +2,11 @@
   "name": "auth-modal-demo",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Mahmoud Zohdi",
+    "email": "mahmoud.zohdi@gmail.com",
+    "url": "http://www.mzohdi.com/"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

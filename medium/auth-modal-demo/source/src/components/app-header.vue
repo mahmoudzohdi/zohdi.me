@@ -2,7 +2,7 @@
   <b-navbar class="justify-content-between" type="dark" variant="dark">
     <b-navbar-brand href="#">Online Shop</b-navbar-brand>
     <div>
-      <b-button class="repo-link" variant="light" href="https://github.com/mahmoudzohdi/zohdi/tree/gh-pages/medium/auth-modal-demo" target="_blank">
+      <b-button class="repo-link" variant="light" href="https://github.com/mahmoudzohdi/zohdi/tree/gh-pages/medium/auth-modal-demo/source" target="_blank">
         <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
       </b-button>
       <b-dropdown class="dropdown-container" variant="light" right>

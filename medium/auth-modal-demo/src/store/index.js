@@ -1,15 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import AuthModule from './AuthModule/index';
+import CheckoutModule from './CheckoutModule/index';
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
-})
+export const modules = {
+  AuthModule,
+  CheckoutModule,
+}

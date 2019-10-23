@@ -11,6 +11,9 @@
     <b-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.</b-card-text>
 
     <b-button variant="primary" @click="callAddProductToCart(item)">Add to cart</b-button>
+    <b-button variant="outline-primary" class="mx-3" @click="callAddProductToWishList(item)">
+      <font-awesome-icon :icon="['fas', 'heart']"></font-awesome-icon>
+    </b-button>
   </b-card>
 </template>
 
@@ -21,9 +24,12 @@ export default {
   name: "product-card",
   props: ["item"],
   methods: {
-    ...mapActions(['addProductToCart']),
+    ...mapActions(['addProductToCart', 'addProductToWishList']),
     callAddProductToCart(item){
       this.addProductToCart(item);
+    },
+    callAddProductToWishList(item){
+      this.addProductToWishList(item);
     }
   },
 };

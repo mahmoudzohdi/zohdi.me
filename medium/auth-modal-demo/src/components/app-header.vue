@@ -7,18 +7,23 @@
         <b-button variant="transparent">
           <font-awesome-icon icon="shopping-cart"></font-awesome-icon>
           <span class="cart-count">
-            5
+            {{ cartLength }}
           </span>
         </b-button>
       </template>
-        <b-card no-body border-variant="transparent" class="cart-item overflow-hidden">
+        <b-card
+          no-body
+          border-variant="transparent"
+          class="cart-item overflow-hidden"
+          v-for="(item, index) in cart"
+          :key="index"
+        >
           <b-row no-gutters class="align-items-center">
             <b-col md="4">
-              <b-card-img src="https://picsum.photos/100/100/?image=20" class="product-image rounded-0"></b-card-img>
+              <b-card-img :src="`https://picsum.photos/100/100/?image=${index}`" class="product-image rounded-0"></b-card-img>
             </b-col>
             <b-col md="8">
-              <b-card-body title="Horizontal Card">
-              </b-card-body>
+              <b-card-body :title="item.name"></b-card-body>
             </b-col>
           </b-row>
         </b-card>
@@ -27,8 +32,16 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+const { mapState } = createNamespacedHelpers('CheckoutModule');
 export default {
   name: "app-header",
+  computed: {
+    ...mapState(['cart']),
+    cartLength(){
+      return this.cart.length;
+    }
+  }
 };
 </script>
 

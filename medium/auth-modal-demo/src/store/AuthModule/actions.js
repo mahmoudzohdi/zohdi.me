@@ -12,7 +12,7 @@ export default {
     });
   },
   hideAuthModal({ commit }) {
-    commit("", {
+    commit("UPDATE_AUTH_MODAL_VISIBILITY", {
       visibility: false,
       callbackAction: {
         name: null,

@@ -1,29 +1,3 @@
-# auth-modal-demo
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# auth-modal demo
+### Create reusable “Login First” modal before the user action with Vue.js + Vuex
+This is the demo project for my article on [Medium](https://medium.com/@mahmoud.zohdi)

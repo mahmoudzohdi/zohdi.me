@@ -8,7 +8,7 @@
 <body>
   <h1>Hello World</h1>
   <script>
-    window.screen.orientation.lock('landscape-primary').then( res => alert('success: ')).catch( err => alert('error: '));
+    window.screen.orientation.lock('landscape-primary').then( res => alert('success: ' + res)).catch( err => alert('error: '+ err));
     var orientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation;
 
     if (orientation === "landscape-primary") {

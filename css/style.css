@@ -83,6 +83,7 @@ img {
 @media (min-width: 768px) {
   .profile-content {
     padding-top: 90px;
+    box-sizing: border-box;
   }
 }
 @media (max-width: 767px) {

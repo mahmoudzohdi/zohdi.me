@@ -80,6 +80,11 @@ img {
   max-width: 100%;
 }
 
+@media (min-width: 768px) {
+  .profile-content {
+    padding-top: 90px;
+  }
+}
 @media (max-width: 767px) {
   figure {
     display: block;

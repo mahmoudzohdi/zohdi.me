@@ -1,5 +1,5 @@
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -9,7 +9,7 @@ body {
   padding: 0;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -20,49 +20,50 @@ a{
   justify-content: center;
   padding: 0 25px;
 }
-article{
-  max-width: 600px;
+article {
+  max-width: 800px;
   width: 100%;
   margin: auto;
 }
 figure {
-  position: relative;
-  height: 150px;
+  display: flex;
+  align-items: end;
+  justify-content: left;
+
+  height: 200px;
   margin: 0;
   background-color: #000;
-  box-shadow: 0 0 55px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 0 55px 20px rgba(0, 0, 0, 0.4);
   border-radius: 10px;
-  padding-left: 220px;
-  
+  padding: 0 30px;
 }
-figcaption{
+figcaption {
   display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 40px 30px;
+  box-sizing: border-box;
 }
 .my-pic {
-  position: absolute;
-  bottom: 0;
-  left: 15px;
-  /* float: left; */
-  width: 188px;
+  height: 440px;
   vertical-align: bottom;
 }
 .my-name {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 400;
   text-align: center;
-  margin: 20px 0 5px;
+  margin: 0 0 5px;
 }
-.job-title{
+.job-title {
   text-align: center;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 300;
   margin-top: 0;
   color: #ccc;
 }
 
-
-.social-links{
-  max-width: 260px;
+.social-links {
+  max-width: 280px;
   list-style: none;
   display: block;
   margin: 25px auto 0;
@@ -70,41 +71,36 @@ figcaption{
   display: flex;
   justify-content: space-between;
 }
-.social-links img{
-  max-width: 20px;
-  height: 14px;
+.social-links img {
+  max-width: 26px;
+  height: 18px;
 }
 
-.codewars-badge{
-  display: block;
-  text-align: center;
-  margin-top: 5px;
-}
-img{
+img {
   max-width: 100%;
 }
 
-@media(max-width: 767px){
-  figure{
-    height: auto;  
+@media (max-width: 767px) {
+  figure {
+    display: block;
+    height: auto;
     background-color: transparent;
     box-shadow: none;
-    padding-left: 0;
   }
-  figcaption{
+  figcaption {
     display: block;
     background: #000;
-    box-shadow: 0 0 20px 5px rgba(0,0,0,0.4);
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
-    padding: 15px 10px;
+
+    padding: 20px 15px;
   }
-  .my-pic{
+  .my-pic {
     position: static;
     display: block;
     margin: auto;
   }
-  .my-name{
-    font-size: 27px;
-    margin: 0 0 5px;
+  .my-name {
+    font-size: 36px;
   }
 }

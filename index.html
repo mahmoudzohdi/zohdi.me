@@ -89,9 +89,10 @@
     --ink: #23272e;
     --muted: #5a6372;
     --line: #e1e5ec;
-    --accent: #1d3db0;
-    --accent-deep: color-mix(in srgb, var(--accent) 78%, black);
-    --on-accent: #ffffff;
+    --accent: #1d3db0;                 /* text, links, outlines */
+    --accent-fill: #1d3db0;            /* tiles, buttons, active states */
+    --accent-fill-deep: color-mix(in srgb, var(--accent-fill) 78%, black);
+    --on-accent: #ffffff;              /* text on fills */
     --faience: #2fa89c;
     --ok: #1f8f62;
     --warn: #b4532a;
@@ -110,8 +111,8 @@
     --ink: #e8ebf5;
     --muted: #a3acc4;
     --line: #2a3363;
-    --accent: #7d95ff;
-    --on-accent: #0e1330;
+    --accent: #9db0ff;
+    --accent-fill: #3858e4;
     --ok: #4cc493;
     --warn: #f08a5d;
     --blueprint: #0a1257;
@@ -144,8 +145,8 @@
   .intro .pitch { margin: 0 0 30px; max-width: 36ch; color: var(--muted); text-wrap: pretty; }
   .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
   .btn { display: inline-flex; align-items: center; padding: 12px 20px; border-radius: 10px; text-decoration: none; font: 500 16px/1 var(--text); border: 0; cursor: pointer; }
-  .btn-primary { background: var(--accent); color: var(--on-accent); }
-  .btn-primary:hover { background: var(--accent-deep); }
+  .btn-primary { background: var(--accent-fill); color: var(--on-accent); }
+  .btn-primary:hover { background: var(--accent-fill-deep); }
   .btn-quiet { background: none; color: var(--accent); box-shadow: inset 0 0 0 1.5px currentColor; }
   .links { display: flex; gap: 18px; flex-wrap: wrap; margin: 0 0 22px; padding: 0; list-style: none; font-size: 15px; }
   .links a { color: var(--muted); text-decoration-color: var(--line); text-underline-offset: 4px; }
@@ -157,13 +158,14 @@
   /* ---------- shell ---------- */
   .shell { position: relative; overflow: clip; background: var(--surface); border-radius: 20px; box-shadow: var(--shadow); padding: 12px; transition: background-color .35s ease; }
   .shell-bar { display: flex; align-items: center; gap: 10px; padding: 4px 6px 12px; }
-  .shell-bar strong { font: 600 15px/1 var(--display); margin-right: auto; white-space: nowrap; }
+  .shell-title { display: flex; align-items: center; gap: 8px; margin-right: auto; font-size: 13px; white-space: nowrap; }
+  .shell-bar strong { font: 600 15px/1 var(--display); }
   .shell-bar .kbd-btn { display: inline-flex; align-items: center; background: none; border: 0; padding: 6px; border-radius: 8px; cursor: pointer; color: var(--ink); }
   .kbd-btn .keys { display: inline-flex; gap: 3px; }
   .kbd-btn .touch-label { display: none; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--accent); }
   .shell-bar .kbd-btn:hover { background: var(--paper); }
   .inspect { font: 500 14px/1 var(--text); color: var(--accent); background: none; cursor: pointer; padding: 8px 12px; border-radius: 8px; border: 1.5px solid currentColor; }
-  .inspect[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .inspect[aria-pressed="true"] { background: var(--accent-fill); color: var(--on-accent); border-color: var(--accent-fill); }
 
   .mosaic {
     --gap: 8px;
@@ -197,15 +199,16 @@
   .badge {
     position: absolute; z-index: 3; top: -11px; left: 10px; display: flex; gap: 4px;
     font: 500 11px/1 var(--mono); pointer-events: none; white-space: nowrap;
-    max-width: calc(100% - 20px); overflow: hidden;
     opacity: 0; transform: translateY(4px); transition: opacity .25s ease, transform .25s ease;
   }
   .badge > * { flex: none; }
-  .badge b { font-weight: 500; background: var(--accent); color: var(--on-accent); padding: 5px 7px; border-radius: 6px; }
+  .badge b { font-weight: 500; background: var(--accent-fill); color: var(--on-accent); padding: 5px 7px; border-radius: 6px; }
   .badge i { font-style: normal; background: var(--surface); color: var(--ink); padding: 5px 7px; border-radius: 6px; box-shadow: 0 0 0 1px var(--line); }
   .badge .crit { background: var(--ok); color: #fff; box-shadow: none; }
   .badge .ver.bumped { background: var(--faience); color: #fff; box-shadow: none; }
   .shell.is-inspecting .badge { opacity: 1; transform: none; }
+  /* a soft shadow lifts labels off tiles that share their colour */
+  .badge b, .badge i { box-shadow: 0 2px 6px rgb(0 0 0 / .35); }
   .unplug {
     position: absolute; z-index: 3; bottom: -12px; right: 10px;
     width: 26px; height: 26px; border-radius: 50%; border: 0; cursor: pointer;
@@ -225,7 +228,7 @@
   .dot { position: absolute; top: 0; left: 0; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
 
   /* ---------- tiles ---------- */
-  .t-me { grid-area: me; background: var(--accent) url(images/zohdi-pic.webp) center bottom / auto 94% no-repeat; place-items: start end; align-content: start; }
+  .t-me { grid-area: me; background: var(--accent-fill) url(images/zohdi-pic.webp) center bottom / auto 94% no-repeat; place-items: start end; align-content: start; }
   .t-me.is-down { background: var(--paper); }
   .bubble {
     margin: 0; max-width: 90%; padding: 7px 11px; border-radius: 12px 12px 4px 12px;
@@ -247,7 +250,7 @@
   .t-theme { grid-area: theme; }
   .switch { width: 64px; height: 36px; border-radius: 99px; border: 0; padding: 0; cursor: pointer; background: var(--line); position: relative; transition: background-color .25s ease; }
   .switch::after { content: ""; position: absolute; top: 4px; left: 4px; width: 28px; height: 28px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgb(0 0 0 / .25); transition: transform .25s cubic-bezier(.2, .8, .2, 1); }
-  .switch[aria-checked="true"] { background: var(--faience); }
+  .switch[aria-checked="true"] { background: var(--accent-fill); }
   .switch[aria-checked="true"]::after { transform: translateX(28px); }
   .theme-reset { font-size: 12.5px; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
   .theme-reset[hidden] { display: none; }
@@ -273,8 +276,8 @@
   .steps li.done::before { background: var(--ok); box-shadow: none; }
 
   .t-ship { grid-area: ship; }
-  .ship { font: 500 16px/1 var(--text); background: var(--accent); color: var(--on-accent); border: 0; padding: 13px 22px; border-radius: 10px; cursor: pointer; }
-  .ship:hover { background: var(--accent-deep); }
+  .ship { font: 500 16px/1 var(--text); background: var(--accent-fill); color: var(--on-accent); border: 0; padding: 13px 22px; border-radius: 10px; cursor: pointer; }
+  .ship:hover { background: var(--accent-fill-deep); }
   .ship:disabled { opacity: .55; cursor: not-allowed; }
 
   .t-events { grid-area: events; background: var(--blueprint); place-items: stretch; align-content: start; }
@@ -290,12 +293,12 @@
 
   .t-tokens { grid-area: tokens; }
   .swatches { display: flex; gap: 10px; }
-  .swatch { width: 28px; height: 28px; border-radius: 50%; border: 0; padding: 0; cursor: pointer; box-shadow: 0 0 0 1px rgb(0 0 0 / .1); }
+  .swatch { width: 28px; height: 28px; border-radius: 50%; border: 0; padding: 0; cursor: pointer; background: var(--swatch); box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 22%, transparent); }
   .swatch[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--ink); }
 
   /* contact: the critical path */
   .t-contact {
-    grid-area: contact; background: var(--accent); color: var(--on-accent);
+    grid-area: contact; background: var(--accent-fill); color: var(--on-accent);
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); place-items: center stretch; gap: 20px; padding: 20px 22px; text-align: left;
   }
   .t-contact h2 { font: 600 24px/1.1 var(--display); margin: 0 0 6px; }
@@ -307,14 +310,14 @@
   .intents { display: flex; flex-wrap: wrap; gap: 6px; border: 0; margin: 0; padding: 0; }
   .intents input { position: absolute; opacity: 0; pointer-events: none; }
   .intents label { padding: 6px 12px; border-radius: 99px; font-size: 14px; font-weight: 500; cursor: pointer; box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--on-accent) 45%, transparent); }
-  .intents input:checked + label { background: var(--on-accent); color: var(--accent); box-shadow: none; }
+  .intents input:checked + label { background: var(--on-accent); color: var(--accent-fill); box-shadow: none; }
   .intents input:focus-visible + label { outline: 3px solid var(--faience); outline-offset: 2px; }
   .message { display: block; resize: vertical; min-height: 44px; width: 100%; font: inherit; font-size: 15px; color: inherit; border: 0; border-radius: 10px; padding: 11px 14px; background: color-mix(in srgb, var(--on-accent) 14%, transparent); outline: none; }
   .message::placeholder { color: color-mix(in srgb, var(--on-accent) 70%, transparent); }
   .message:focus { box-shadow: 0 0 0 2px var(--on-accent); }
   .send { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
   .send button { border: 0; cursor: pointer; padding: 10px 16px; border-radius: 10px; font-size: 15px; font-weight: 500; }
-  .send .primary { background: var(--on-accent); color: var(--accent); }
+  .send .primary { background: var(--on-accent); color: var(--accent-fill); }
   .send .primary:disabled { opacity: .7; cursor: progress; }
   .send .secondary { background: none; color: inherit; box-shadow: inset 0 0 0 1.5px currentColor; }
   .t-contact .copy { margin-top: 10px; font-size: 14px; background: none; border: 0; color: inherit; padding: 2px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; opacity: .85; }
@@ -334,7 +337,7 @@
 
   /* ---------- sections below the hero ---------- */
   .section { max-width: 1240px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) 24px 0; }
-  .section-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+  .section-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
   .section h2 { font: 600 clamp(30px, 3.6vw, 42px)/1.1 var(--display); letter-spacing: -0.015em; margin: 0; }
   .section .sub { margin: 0 0 36px; max-width: 60ch; color: var(--muted); text-wrap: pretty; }
 
@@ -356,16 +359,21 @@
     transition: background-color .2s ease, box-shadow .2s ease, transform .2s ease;
   }
   .stop .node::after { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--ink); }
-  .stop[data-mode="remote"] .node { box-shadow: none; background: var(--paper) radial-gradient(circle, transparent 15px, transparent 16px); outline: 2px dashed var(--ink); outline-offset: -2px; }
-  .stop[data-mode="remote"] .node::after { background: none; box-shadow: inset 0 0 0 2px var(--ink); }
   .stop .city { font: 600 19px/1.2 var(--display); }
   .stop .years { font-size: 14px; color: var(--muted); }
   .stop .who { font-size: 14px; font-weight: 500; }
   .stop .mode { font-size: 12.5px; color: var(--muted); }
   .stop:hover .node { transform: scale(1.08); }
-  .stop[aria-selected="true"] .node { background: var(--accent); box-shadow: none; outline-color: var(--accent); transform: scale(1.12); }
+  .stop[aria-selected="true"] .node { background: var(--accent-fill); box-shadow: none; outline-color: var(--accent-fill); transform: scale(1.12); }
   .stop[aria-selected="true"] .node::after { background: var(--on-accent); box-shadow: none; }
   .stop[aria-selected="true"] .city { color: var(--accent); }
+  /* the current role stays marked whichever stop is selected */
+  .live { display: inline-flex; align-items: center; gap: 5px; margin-left: 3px; color: var(--ok); font-weight: 600; }
+  .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 25%, transparent); }
+  .stop.is-current .node { box-shadow: 0 0 0 6px color-mix(in srgb, var(--ok) 22%, transparent); outline: 2px dashed var(--ok); outline-offset: -2px; }
+  .stop.is-current .node::after { background: var(--ok); }
+  .stop.is-current[aria-selected="true"] .node { box-shadow: 0 0 0 9px color-mix(in srgb, var(--ok) 18%, transparent); outline-offset: 3px; }
+  .stop.is-current[aria-selected="true"] .node::after { background: var(--on-accent); }
 
   .stop-panel { background: var(--surface); border-radius: 20px; box-shadow: var(--shadow); padding: clamp(22px, 3vw, 36px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: clamp(20px, 4vw, 56px); }
   .stop-panel[hidden] { display: none; }
@@ -426,6 +434,12 @@
     .now-grid { grid-template-columns: 1fr; }
     .site-footer { flex-direction: column; align-items: flex-start; }
   }
+  /* very small screens: icon-only commands button and tighter header */
+  @media (max-width: 400px) {
+    .shell-bar { gap: 6px; }
+    .kbd-btn .touch-label { font-size: 0; gap: 0; }
+    .inspect { padding: 7px 10px; }
+  }
   /* touch-first devices: no keyboard shortcuts to advertise, but the palette stays one tap away */
   @media (hover: none) and (pointer: coarse) {
     .palette-hint { display: none; }
@@ -462,7 +476,7 @@
   <div>
     <div class="shell" id="shell">
       <div class="shell-bar">
-        <strong>One product</strong>
+        <div class="shell-title"><strong>zohdi.me</strong><span class="live">live</span></div>
         <button class="kbd-btn" data-open-palette aria-label="Open command palette"><span class="keys"><kbd class="mod">⌘</kbd><kbd>K</kbd></span><span class="touch-label"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Commands</span></button>
         <button class="inspect" id="inspect" aria-pressed="false">Inspect</button>
       </div>
@@ -511,9 +525,9 @@
 
         <div class="tile t-tokens" data-remote="tokens" data-fw="CSS" data-v="3.0.0">
           <div class="swatches" role="group" aria-label="Accent colour">
-            <button class="swatch" data-accent="blue" aria-pressed="true" aria-label="Egyptian blue" style="background:#1d3db0"></button>
-            <button class="swatch" data-accent="faience" aria-pressed="false" aria-label="Faience turquoise" style="background:#1f7f75"></button>
-            <button class="swatch" data-accent="graphite" aria-pressed="false" aria-label="Graphite" style="background:#2b3140"></button>
+            <button class="swatch" data-accent="blue" aria-pressed="true" aria-label="Egyptian blue"></button>
+            <button class="swatch" data-accent="faience" aria-pressed="false" aria-label="Faience turquoise"></button>
+            <button class="swatch" data-accent="graphite" aria-pressed="false" aria-label="Graphite"></button>
           </div>
           <p class="tile-label">Accent</p>
         </div>
@@ -551,7 +565,7 @@
       </div>
       <div class="wires" id="wires" aria-hidden="true"></div>
     </div>
-    <p class="caption">Nine small apps composed into one product. Press Inspect to see the seams, unplug a piece, or ship a release.</p>
+    <p class="caption">9 small apps, 1 product. Press Inspect to see the seams, unplug a piece, or ship a release.</p>
   </div>
 </section>
 
@@ -576,8 +590,8 @@
       </button>
     </li>
     <li>
-      <button class="stop" role="tab" id="stop-ny" aria-controls="panel-ny" aria-selected="true" tabindex="0" data-mode="remote">
-        <span class="node" aria-hidden="true"></span><span class="city">New York</span><span class="years">2022 – now</span><span class="who">OffSec</span><span class="mode">Remote from Egypt</span>
+      <button class="stop is-current" role="tab" id="stop-ny" aria-controls="panel-ny" aria-selected="true" tabindex="0" data-mode="remote">
+        <span class="node" aria-hidden="true"></span><span class="city">New York</span><span class="years">2022 – <span class="live">now</span></span><span class="who">OffSec</span><span class="mode">Remote from Egypt</span>
       </button>
     </li>
   </ol>
@@ -586,7 +600,7 @@
     <div>
       <h3>Software Engineer</h3>
       <p class="company"><a href="https://www.offsec.com/" target="_blank" rel="noopener"><svg class="co-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 9h2a2 2 0 0 1 2 2v10"/><path d="M3 21h18M8 7h4M8 11h4M8 15h4"/></svg>OffSec<svg class="ext" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="sr-only"> (opens in a new tab)</span></a></p>
-      <p class="when">Jan 2022 – now</p>
+      <p class="when">Jan 2022 – <span class="live">now</span></p>
       <p class="when">Remote from Egypt. OffSec is based in New York.</p>
     </div>
     <div>
@@ -657,7 +671,7 @@
 <section class="section" id="now" aria-labelledby="now-title">
   <div class="section-head">
     <h2 id="now-title">Now</h2>
-    <p class="updated" id="now-updated" hidden>Updated <time datetime="2026-10-15">October 2026</time></p>
+    <p class="updated" id="now-updated" hidden><span>Updated <time datetime="2026-10-15">October 2026</time></span></p>
   </div>
   <p class="sub">What I'm focused on these days.</p>
   <ul class="now-grid">
@@ -802,13 +816,20 @@
   }
 
   /* ---------- theme + tokens ---------- */
+  // [text, fill] per theme; dark mode uses a light text tone and a vivid fill so white text stays readable
   const accents = {
-    blue: { light: "#1d3db0", dark: "#7d95ff" },
-    faience: { light: "#1f7f75", dark: "#5fd1c3" },
-    graphite: { light: "#2b3140", dark: "#c9cfdb" },
+    blue: { light: ["#1d3db0", "#1d3db0"], dark: ["#9db0ff", "#3858e4"] },
+    faience: { light: ["#1f7f75", "#1f7f75"], dark: ["#5fd1c3", "#18786d"] },
+    graphite: { light: ["#2b3140", "#2b3140"], dark: ["#c9cfdb", "#4a5370"] },
   };
   let accent = "blue", resetShipped = false;
-  const applyAccent = () => root.style.setProperty("--accent", accents[accent][root.dataset.theme]);
+  function applyAccent() {
+    const [text, fill] = accents[accent][root.dataset.theme];
+    root.style.setProperty("--accent", text);
+    root.style.setProperty("--accent-fill", fill);
+    // swatches always show the fill each accent really uses in the current theme
+    $$(".swatch").forEach((sw) => sw.style.setProperty("--swatch", accents[sw.dataset.accent][root.dataset.theme][1]));
+  }
   const themeSwitch = $("#theme"), themeReset = $("#theme-reset");
   const systemDark = matchMedia("(prefers-color-scheme: dark)");
   const systemTheme = () => (systemDark.matches ? "dark" : "light");

@@ -425,11 +425,16 @@
 
   }
   @media (max-width: 640px) {
-    .route { grid-template-columns: 1fr; gap: 6px; }
-    .route li:not(:last-child)::after { top: 36px; bottom: -6px; left: 17px; right: auto; border-top: 0; border-left: 2px solid var(--ink); }
-    .route li.next-remote::after { border-left-style: dashed; }
-    .stop { grid-template-columns: 36px 1fr; justify-items: start; text-align: left; column-gap: 14px; padding: 0 0 14px; }
-    .stop .node { grid-row: span 4; margin: 0; }
+    /* compact route: all four stops stay visible, details live in the panel right below */
+    .route { margin: 0 -12px 16px; }
+    .route li:not(:last-child)::after { top: 13px; left: calc(50% + 14px); right: calc(-50% + 14px); }
+    .stop { gap: 2px; padding: 0 2px 8px; }
+    .stop .node { width: 28px; height: 28px; margin-bottom: 8px; }
+    .stop .node::after { width: 9px; height: 9px; }
+    .stop .city { font-size: clamp(13px, 3.9vw, 16px); white-space: nowrap; }
+    .stop .years { font-size: clamp(11.5px, 3.2vw, 13px); line-height: 1.35; }
+    .stop .years .live { margin-left: 2px; gap: 3px; }
+    .stop .who, .stop .mode { display: none; }
     .stop-panel { grid-template-columns: 1fr; }
     .now-grid { grid-template-columns: 1fr; }
     .site-footer { flex-direction: column; align-items: flex-start; }

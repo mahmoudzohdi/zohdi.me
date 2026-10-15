@@ -1,191 +1,1017 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Mahmoud Zohdi</title>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mahmoud Zohdi, Senior Software Engineer</title>
+<meta name="description" content="Mahmoud Zohdi, Senior Software Engineer with 12+ years building for the web. Frontend at heart, shipping features end to end." />
+<link rel="canonical" href="https://zohdi.me/" />
+<meta name="theme-color" content="#1d3db0" />
+<meta itemprop="name" content="Mahmoud Zohdi" />
+<meta itemprop="description" content="Mahmoud Zohdi, Senior Software Engineer with 12+ years building for the web. Frontend at heart, shipping features end to end." />
+<meta itemprop="image" content="https://zohdi.me/images/meta-pic.jpg" />
+<meta property="og:url" content="https://zohdi.me/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Mahmoud Zohdi, Senior Software Engineer" />
+<meta property="og:description" content="Mahmoud Zohdi, Senior Software Engineer with 12+ years building for the web. Frontend at heart, shipping features end to end." />
+<meta property="og:image" content="https://zohdi.me/images/meta-pic.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Mahmoud Zohdi, Senior Software Engineer" />
+<meta name="twitter:description" content="Mahmoud Zohdi, Senior Software Engineer with 12+ years building for the web. Frontend at heart, shipping features end to end." />
+<meta name="twitter:image" content="https://zohdi.me/images/meta-pic.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #eef0f3;
+    --surface: #ffffff;
+    --ink: #23272e;
+    --muted: #5a6372;
+    --line: #e1e5ec;
+    --accent: #1d3db0;
+    --accent-deep: color-mix(in srgb, var(--accent) 78%, black);
+    --on-accent: #ffffff;
+    --faience: #2fa89c;
+    --ok: #1f8f62;
+    --warn: #b4532a;
+    --blueprint: #142c85;
+    --blueprint-ink: #d6e0ff;
+    --code-tag: #8fe3d8;
+    --display: "Alexandria", system-ui, sans-serif;
+    --text: "IBM Plex Sans", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --shadow: 0 1px 2px rgb(20 44 133 / 0.08), 0 18px 40px -18px rgb(20 44 133 / 0.35);
+    color-scheme: light;
+  }
+  [data-theme="dark"] {
+    --paper: #0e1330;
+    --surface: #161d45;
+    --ink: #e8ebf5;
+    --muted: #a3acc4;
+    --line: #2a3363;
+    --on-accent: #0e1330;
+    --ok: #4cc493;
+    --warn: #f08a5d;
+    --blueprint: #0a1257;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 18px 40px -18px rgb(0 0 0 / 0.6);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font: 400 17px/1.6 var(--text);
+    -webkit-font-smoothing: antialiased;
+    transition: background-color .35s ease, color .35s ease;
+  }
+  a { color: inherit; }
+  button { font: inherit; }
+  :focus-visible { outline: 3px solid var(--faience); outline-offset: 3px; border-radius: 4px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  kbd { font: 500 12px/1 var(--mono); padding: 3px 6px; border-radius: 5px; background: var(--surface); box-shadow: 0 0 0 1px var(--line), 0 1px 0 1px var(--line); color: var(--ink); }
 
-    <meta
-      name="description"
-      content="Hello, My name is Mahmoud Zohdi, I'm a Senior Software Engineer focused on Frontend, with hands-on Backend experience for building end-to-end features."
-    />
-    <meta
-      name="keywords"
-      content="Mahmoud Zohdi,Zohdi,mzohdi,Frontend,Front-End,Developer,HTML,CSS,JavaScript"
-    />
-    <!-- Google / Search Engine Tags -->
-    <meta itemprop="name" content="Mahmoud Zohdi" />
-    <meta
-      itemprop="description"
-      content="Hello, My name is Mahmoud Zohdi, I'm a Senior Software Engineer focused on Frontend, with hands-on Backend experience for building end-to-end features."
-    />
-    <meta itemprop="image" content="images/meta-pic.jpg" />
+  /* ---------- hero ---------- */
+  .hero {
+    max-width: 1240px; margin: 0 auto; min-height: 100vh;
+    padding: clamp(32px, 5vw, 64px) 24px;
+    display: grid; gap: clamp(32px, 5vw, 64px); align-items: center;
+    grid-template-columns: minmax(0, 4.6fr) minmax(0, 7.4fr);
+  }
+  .intro h1 { font: 600 clamp(40px, 5vw, 64px)/1.02 var(--display); letter-spacing: -0.02em; margin: 0 0 14px; }
+  .intro .role { font: 400 clamp(19px, 2vw, 23px)/1.3 var(--display); margin: 0 0 22px; color: var(--accent); }
+  .intro .pitch { margin: 0 0 30px; max-width: 36ch; color: var(--muted); text-wrap: pretty; }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
+  .btn { display: inline-flex; align-items: center; padding: 12px 20px; border-radius: 10px; text-decoration: none; font: 500 16px/1 var(--text); border: 0; cursor: pointer; }
+  .btn-primary { background: var(--accent); color: var(--on-accent); }
+  .btn-primary:hover { background: var(--accent-deep); }
+  .btn-quiet { background: none; color: var(--accent); box-shadow: inset 0 0 0 1.5px currentColor; }
+  .links { display: flex; gap: 18px; flex-wrap: wrap; margin: 0 0 22px; padding: 0; list-style: none; font-size: 15px; }
+  .links a { color: var(--muted); text-decoration-color: var(--line); text-underline-offset: 4px; }
+  .links a:hover { color: var(--accent); }
+  .palette-hint { margin: 0; font-size: 14px; color: var(--muted); }
+  .palette-hint button { background: none; border: 0; padding: 0; color: inherit; cursor: pointer; }
+  .caption { margin: 14px 0 0; color: var(--muted); font-size: 15px; text-wrap: pretty; }
 
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://zohdi.me" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Mahmoud Zohdi" />
-    <meta
-      property="og:description"
-      content="Hello, My name is Mahmoud Zohdi, I'm a Senior Software Engineer focused on Frontend, with hands-on Backend experience for building end-to-end features."
-    />
-    <meta property="og:image" content="images/meta-pic.jpg" />
+  /* ---------- shell ---------- */
+  .shell { position: relative; overflow: clip; background: var(--surface); border-radius: 20px; box-shadow: var(--shadow); padding: 12px; transition: background-color .35s ease; }
+  .shell-bar { display: flex; align-items: center; gap: 10px; padding: 4px 6px 12px; }
+  .shell-bar strong { font: 600 15px/1 var(--display); margin-right: auto; white-space: nowrap; }
+  .shell-bar .kbd-btn { display: inline-flex; align-items: center; background: none; border: 0; padding: 6px; border-radius: 8px; cursor: pointer; color: var(--ink); }
+  .kbd-btn .keys { display: inline-flex; gap: 3px; }
+  .kbd-btn .touch-label { display: none; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--accent); }
+  .shell-bar .kbd-btn:hover { background: var(--paper); }
+  .inspect { font: 500 14px/1 var(--text); color: var(--accent); background: none; cursor: pointer; padding: 8px 12px; border-radius: 8px; border: 1.5px solid currentColor; }
+  .inspect[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mahmoud Zohdi" />
-    <meta
-      name="twitter:description"
-      content="Hello, My name is Mahmoud Zohdi, I'm a Senior Software Engineer focused on Frontend, with hands-on Backend experience for building end-to-end features."
-    />
-    <meta name="twitter:image" content="images/meta-pic.jpg" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap"
-      rel="stylesheet"
-    />
+  .mosaic {
+    --gap: 8px;
+    display: grid; gap: var(--gap);
+    grid-template-columns: 1.1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, minmax(116px, auto)) auto;
+    grid-template-areas:
+      "me      search  search  theme"
+      "me      stack   stack   status"
+      "ship    events  events  tokens"
+      "contact contact contact contact";
+    transition: gap .45s cubic-bezier(.2, .8, .2, 1);
+  }
+  .shell.is-inspecting .mosaic { --gap: 22px; }
 
-    <link rel="stylesheet" href="css/style.css" />
+  .tile {
+    position: relative; min-width: 0;
+    background: var(--paper); border-radius: 12px; padding: 14px;
+    display: grid; place-items: center; align-content: center; gap: 8px;
+    outline: 1.5px dashed transparent; outline-offset: 4px;
+    transition: transform .8s cubic-bezier(.2, .8, .2, 1), opacity .6s ease, outline-color .3s ease, background-color .35s ease, box-shadow .3s ease;
+  }
+  .mosaic.is-scattered .tile { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(.92); transition: none; }
+  .shell.is-inspecting .tile { outline-color: var(--accent); }
+  .tile.got { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 45%, transparent); }
+  .tile.is-updating { outline-color: var(--faience); outline-style: solid; }
+  .tile.is-updating > :not(.badge, .unplug, .fallback) { opacity: .35; transition: opacity .3s ease; }
+  .tile-label { font-size: 13px; color: var(--muted); margin: 0; text-align: center; }
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-118598001-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+  /* inspector overlay */
+  .badge {
+    position: absolute; z-index: 3; top: -11px; left: 10px; display: flex; gap: 4px;
+    font: 500 11px/1 var(--mono); pointer-events: none; white-space: nowrap;
+    max-width: calc(100% - 20px); overflow: hidden;
+    opacity: 0; transform: translateY(4px); transition: opacity .25s ease, transform .25s ease;
+  }
+  .badge > * { flex: none; }
+  .badge b { font-weight: 500; background: var(--accent); color: var(--on-accent); padding: 5px 7px; border-radius: 6px; }
+  .badge i { font-style: normal; background: var(--surface); color: var(--ink); padding: 5px 7px; border-radius: 6px; box-shadow: 0 0 0 1px var(--line); }
+  .badge .crit { background: var(--ok); color: #fff; box-shadow: none; }
+  .badge .ver.bumped { background: var(--faience); color: #fff; box-shadow: none; }
+  .shell.is-inspecting .badge { opacity: 1; transform: none; }
+  .unplug {
+    position: absolute; z-index: 3; bottom: -12px; right: 10px;
+    width: 26px; height: 26px; border-radius: 50%; border: 0; cursor: pointer;
+    display: none; place-items: center; color: var(--warn); background: var(--surface); box-shadow: 0 0 0 1px var(--line);
+  }
+  .shell.is-inspecting .unplug { display: grid; }
+  .unplug[aria-pressed="true"] { background: var(--warn); color: #fff; box-shadow: none; }
+  .fallback { display: none; }
+  .tile.is-down { background: repeating-linear-gradient(-45deg, var(--paper) 0 10px, color-mix(in srgb, var(--warn) 7%, var(--paper)) 10px 20px); }
+  .tile.is-down > :not(.badge, .unplug, .fallback) { display: none; }
+  .tile.is-down .fallback { display: grid; gap: 8px; place-items: center; text-align: center; }
+  .fallback p { margin: 0; font-size: 13px; color: var(--muted); }
+  .fallback button { font-size: 13px; font-weight: 500; color: var(--accent); background: var(--surface); border: 0; padding: 6px 12px; border-radius: 8px; box-shadow: 0 0 0 1px var(--line); cursor: pointer; }
+
+  /* event wires */
+  .wires { position: absolute; inset: 0; pointer-events: none; z-index: 6; }
+  .dot { position: absolute; top: 0; left: 0; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
+
+  /* ---------- tiles ---------- */
+  .t-me { grid-area: me; background: var(--accent) url(images/zohdi-pic.png) center bottom / auto 94% no-repeat; place-items: start end; align-content: start; }
+  .t-me.is-down { background: var(--paper); }
+  .bubble {
+    margin: 0; max-width: 90%; padding: 7px 11px; border-radius: 12px 12px 4px 12px;
+    background: var(--surface); color: var(--ink); font: 500 13px/1.2 var(--text);
+    box-shadow: 0 6px 16px -8px rgb(0 0 0 / .4);
+    opacity: 0; transform: translateY(6px) scale(.96); transition: opacity .25s ease, transform .25s ease;
+  }
+  .bubble.show { opacity: 1; transform: none; }
+
+  .t-search { grid-area: search; }
+  .field { width: 100%; display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-radius: 10px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); color: var(--muted); }
+  .field:focus-within { box-shadow: 0 0 0 2px var(--accent); }
+  .field input { font: inherit; font-size: 15px; color: var(--ink); border: 0; background: none; outline: none; width: 100%; min-width: 0; }
+  .field input::placeholder { color: var(--muted); }
+  .field svg { flex: none; }
+  .field kbd { display: none; }
+  .t-search.has-slash .field kbd { display: inline-block; }
+
+  .t-theme { grid-area: theme; }
+  .switch { width: 64px; height: 36px; border-radius: 99px; border: 0; padding: 0; cursor: pointer; background: var(--line); position: relative; transition: background-color .25s ease; }
+  .switch::after { content: ""; position: absolute; top: 4px; left: 4px; width: 28px; height: 28px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgb(0 0 0 / .25); transition: transform .25s cubic-bezier(.2, .8, .2, 1); }
+  .switch[aria-checked="true"] { background: var(--faience); }
+  .switch[aria-checked="true"]::after { transform: translateX(28px); }
+
+  .t-stack { grid-area: stack; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0; padding: 0; list-style: none; }
+  .chips li { padding: 6px 12px; border-radius: 99px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); font-size: 14px; font-weight: 500; }
+  .chips li[hidden] { display: none; }
+  .chips mark { background: none; color: var(--accent); }
+  .t-stack.shows-daily .chips li.daily { box-shadow: 0 0 0 1.5px var(--faience); }
+  .t-stack.shows-daily .chips li.daily::after { content: ""; display: inline-block; width: 6px; height: 6px; margin-left: 6px; border-radius: 50%; background: var(--faience); vertical-align: middle; }
+  .daily-note { display: none; }
+  .t-stack.shows-daily .daily-note { display: block; }
+
+  .t-status { grid-area: status; place-items: stretch; }
+  .release { margin: 0; font: 600 13px/1.2 var(--display); text-align: center; }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 13px; }
+  .steps li { display: flex; align-items: center; gap: 8px; color: var(--muted); }
+  .steps li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; box-shadow: inset 0 0 0 2px var(--line); flex: none; }
+  .steps li.active { color: var(--ink); }
+  .steps li.active::before { box-shadow: inset 0 0 0 2px var(--accent); background: color-mix(in srgb, var(--accent) 25%, transparent); }
+  .steps li.done { color: var(--ink); }
+  .steps li.done::before { background: var(--ok); box-shadow: none; }
+
+  .t-ship { grid-area: ship; }
+  .ship { font: 500 16px/1 var(--text); background: var(--accent); color: var(--on-accent); border: 0; padding: 13px 22px; border-radius: 10px; cursor: pointer; }
+  .ship:hover { background: var(--accent-deep); }
+  .ship:disabled { opacity: .55; cursor: not-allowed; }
+
+  .t-events { grid-area: events; background: var(--blueprint); place-items: stretch; align-content: start; }
+  .t-events .tile-label { color: var(--blueprint-ink); opacity: .7; text-align: left; }
+  .t-events.is-down .fallback p { color: var(--blueprint-ink); }
+  .t-events.is-down { background: var(--blueprint); }
+  .log { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font: 400 12.5px/1.4 var(--mono); color: var(--blueprint-ink); }
+  .log li { display: flex; justify-content: space-between; gap: 12px; white-space: nowrap; overflow: hidden; }
+  .log li b { font-weight: 500; color: var(--code-tag); }
+  .log li:nth-child(2) { opacity: .75; }
+  .log li:nth-child(3) { opacity: .5; }
+  .log li:nth-child(n + 4) { display: none; }
+
+  .t-tokens { grid-area: tokens; }
+  .swatches { display: flex; gap: 10px; }
+  .swatch { width: 28px; height: 28px; border-radius: 50%; border: 0; padding: 0; cursor: pointer; box-shadow: 0 0 0 1px rgb(0 0 0 / .1); }
+  .swatch[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--ink); }
+
+  /* contact: the critical path */
+  .t-contact {
+    grid-area: contact; background: var(--accent); color: var(--on-accent);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); place-items: center stretch; gap: 20px; padding: 20px 22px; text-align: left;
+  }
+  .t-contact h2 { font: 600 24px/1.1 var(--display); margin: 0 0 6px; }
+  .t-contact .lede { margin: 0; font-size: 15px; line-height: 1.45; opacity: .9; text-wrap: pretty; }
+  .contact-form { display: grid; gap: 10px; }
+  .contact-form[hidden] { display: none; }
+  .contact-actions { display: grid; gap: 14px; justify-items: start; }
+  .address { font: 600 clamp(20px, 2.2vw, 26px)/1.2 var(--display); color: inherit; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; word-break: break-all; }
+  .intents { display: flex; flex-wrap: wrap; gap: 6px; border: 0; margin: 0; padding: 0; }
+  .intents input { position: absolute; opacity: 0; pointer-events: none; }
+  .intents label { padding: 6px 12px; border-radius: 99px; font-size: 14px; font-weight: 500; cursor: pointer; box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--on-accent) 45%, transparent); }
+  .intents input:checked + label { background: var(--on-accent); color: var(--accent); box-shadow: none; }
+  .intents input:focus-visible + label { outline: 3px solid var(--faience); outline-offset: 2px; }
+  .message { display: block; resize: vertical; min-height: 44px; width: 100%; font: inherit; font-size: 15px; color: inherit; border: 0; border-radius: 10px; padding: 11px 14px; background: color-mix(in srgb, var(--on-accent) 14%, transparent); outline: none; }
+  .message::placeholder { color: color-mix(in srgb, var(--on-accent) 70%, transparent); }
+  .message:focus { box-shadow: 0 0 0 2px var(--on-accent); }
+  .send { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .send button { border: 0; cursor: pointer; padding: 10px 16px; border-radius: 10px; font-size: 15px; font-weight: 500; }
+  .send .primary { background: var(--on-accent); color: var(--accent); }
+  .send .primary:disabled { opacity: .7; cursor: progress; }
+  .send .secondary { background: none; color: inherit; box-shadow: inset 0 0 0 1.5px currentColor; }
+  .t-contact .copy { margin-top: 10px; font-size: 14px; background: none; border: 0; color: inherit; padding: 2px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; opacity: .85; }
+  .t-contact .copy:hover { opacity: 1; }
+  .contact-status { margin: 0; font-size: 13px; min-height: 1.3em; opacity: .9; }
+
+  /* ---------- command palette ---------- */
+  .palette { width: min(560px, calc(100% - 32px)); margin-top: 14vh; padding: 0; border: 0; border-radius: 16px; background: var(--surface); color: var(--ink); box-shadow: 0 30px 80px -20px rgb(0 0 0 / .5); }
+  .palette::backdrop { background: rgb(14 19 48 / .35); backdrop-filter: blur(3px); }
+  .palette-input { width: 100%; font: 400 17px/1.4 var(--text); color: var(--ink); background: none; border: 0; border-bottom: 1px solid var(--line); padding: 18px 20px; outline: none; }
+  .palette ul { list-style: none; margin: 0; padding: 8px; max-height: 340px; overflow: auto; }
+  .palette li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; }
+  .palette li[aria-selected="true"] { background: var(--paper); }
+  .palette li span { color: var(--muted); font-size: 13px; }
+  .palette .empty { color: var(--muted); padding: 14px 12px; margin: 0; }
+
+
+  /* ---------- sections below the hero ---------- */
+  .section { max-width: 1240px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) 24px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+  .section h2 { font: 600 clamp(30px, 3.6vw, 42px)/1.1 var(--display); letter-spacing: -0.015em; margin: 0; }
+  .section .sub { margin: 0 0 36px; max-width: 60ch; color: var(--muted); text-wrap: pretty; }
+
+  /* experience: journey by city */
+  .route { list-style: none; margin: 0 0 28px; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .route li { position: relative; }
+  .route li:not(:last-child)::after {
+    content: ""; position: absolute; z-index: 0; top: 17px; left: calc(50% + 18px); right: calc(-50% + 18px);
+    border-top: 2px solid var(--ink); opacity: .35;
+  }
+  .route li.next-remote::after { border-top-style: dashed; }
+  .stop {
+    position: relative; z-index: 1; width: 100%; background: none; border: 0; cursor: pointer; color: inherit;
+    display: grid; justify-items: center; gap: 4px; padding: 0 8px 12px; text-align: center; border-radius: 12px;
+  }
+  .stop .node {
+    width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 10px;
+    background: var(--paper); box-shadow: inset 0 0 0 2px var(--ink);
+    transition: background-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  }
+  .stop .node::after { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--ink); }
+  .stop[data-mode="remote"] .node { box-shadow: none; background: var(--paper) radial-gradient(circle, transparent 15px, transparent 16px); outline: 2px dashed var(--ink); outline-offset: -2px; }
+  .stop[data-mode="remote"] .node::after { background: none; box-shadow: inset 0 0 0 2px var(--ink); }
+  .stop .city { font: 600 19px/1.2 var(--display); }
+  .stop .years { font-size: 14px; color: var(--muted); }
+  .stop .who { font-size: 14px; font-weight: 500; }
+  .stop .mode { font-size: 12.5px; color: var(--muted); }
+  .stop:hover .node { transform: scale(1.08); }
+  .stop[aria-selected="true"] .node { background: var(--accent); box-shadow: none; outline-color: var(--accent); transform: scale(1.12); }
+  .stop[aria-selected="true"] .node::after { background: var(--on-accent); box-shadow: none; }
+  .stop[aria-selected="true"] .city { color: var(--accent); }
+
+  .stop-panel { background: var(--surface); border-radius: 20px; box-shadow: var(--shadow); padding: clamp(22px, 3vw, 36px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: clamp(20px, 4vw, 56px); }
+  .stop-panel[hidden] { display: none; }
+  .stop-panel h3 { font: 600 24px/1.2 var(--display); margin: 0 0 6px; }
+  .company { display: inline-flex; align-items: center; gap: 6px; margin: 0 0 12px; font: 600 15px/1.2 var(--display); color: var(--accent); }
+  .company .co-ico { flex: none; }
+  .earlier .company { margin: 0; font-size: 14px; grid-column: 1 / -1; }
+  .stop-panel .when { margin: 0; color: var(--muted); font-size: 15px; }
+  .stop-panel .lede { margin: 0 0 14px; text-wrap: pretty; }
+  .stop-panel ul.points { margin: 0 0 18px; padding-left: 1.1em; display: grid; gap: 8px; color: var(--muted); }
+  .stop-panel ul.points li::marker { color: var(--accent); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+  .tags li { font-size: 13px; font-weight: 500; padding: 4px 10px; border-radius: 99px; background: var(--paper); }
+  .earlier { margin: 22px 0 0; padding: 18px 0 0; border-top: 1px solid var(--line); list-style: none; display: grid; gap: 12px; }
+  .earlier li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 3px 16px; }
+  .earlier li > span:last-child { grid-column: 1 / -1; }
+  .earlier b { font-weight: 500; }
+  .earlier > li > span:not(.company) { color: var(--muted); font-size: 14px; }
+  .earlier .yr { grid-row: 1; grid-column: 2; font-size: 14px; color: var(--muted); }
+  .earlier-title { margin: 22px 0 0; font: 600 15px/1.2 var(--display); }
+
+  /* now */
+  .updated { display: inline-flex; align-items: center; gap: 8px; margin: 0; font-size: 13px; font-weight: 500; color: var(--ok); background: color-mix(in srgb, var(--ok) 12%, transparent); padding: 5px 10px; border-radius: 99px; }
+  .updated::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .updated[hidden] { display: none; }
+  .now-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 56px; margin: 0; padding: 0; list-style: none; }
+  .now-grid h3 { font: 600 19px/1.25 var(--display); margin: 0 0 6px; }
+  .now-grid p { margin: 0; color: var(--muted); max-width: 46ch; text-wrap: pretty; }
+
+  /* footer */
+  .site-footer { max-width: 1240px; margin: clamp(64px, 9vw, 120px) auto 0; padding: 28px 24px 40px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between; font-size: 15px; color: var(--muted); }
+  .site-footer .hello { font: 600 18px/1.3 var(--display); color: var(--ink); margin: 0; }
+  .site-footer .hello a { color: var(--accent); text-underline-offset: 4px; }
+  .site-footer .links { margin: 0; }
+  .site-footer p { margin: 0; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 960px) {
+    .hero { grid-template-columns: 1fr; min-height: 0; }
+    .mosaic {
+      grid-template-columns: 1fr 1fr; grid-template-rows: none;
+      grid-template-areas: "me theme" "me status" "search search" "stack stack" "ship tokens" "events events" "contact contact";
+    }
+    .t-me { min-height: 230px; }
+    .t-contact { grid-template-columns: 1fr; }
+
+  }
+  @media (max-width: 640px) {
+    .route { grid-template-columns: 1fr; gap: 6px; }
+    .route li:not(:last-child)::after { top: 36px; bottom: -6px; left: 17px; right: auto; border-top: 0; border-left: 2px solid var(--ink); }
+    .route li.next-remote::after { border-left-style: dashed; }
+    .stop { grid-template-columns: 36px 1fr; justify-items: start; text-align: left; column-gap: 14px; padding: 0 0 14px; }
+    .stop .node { grid-row: span 4; margin: 0; }
+    .stop-panel { grid-template-columns: 1fr; }
+    .now-grid { grid-template-columns: 1fr; }
+    .site-footer { flex-direction: column; align-items: flex-start; }
+  }
+  /* touch-first devices: no keyboard shortcuts to advertise, but the palette stays one tap away */
+  @media (hover: none) and (pointer: coarse) {
+    .palette-hint { display: none; }
+    .kbd-btn .keys { display: none; }
+    .kbd-btn .touch-label { display: inline-flex; }
+    .shell-bar .kbd-btn { padding: 8px 10px; box-shadow: inset 0 0 0 1.5px var(--line); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+<section class="hero">
+  <div class="intro">
+    <h1>Mahmoud Zohdi</h1>
+    <p class="role">Senior Software Engineer</p>
+    <p class="pitch">12+ years building for the web. Frontend at heart, and these days I ship features end to end.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://drive.google.com/file/d/1bUjVPo0Y2Rz0wHRqZy3wi9a1vfL7F0OC/view">Download CV</a>
+      <button class="btn btn-quiet" data-say-hello>Say hello</button>
+    </div>
+    <ul class="links">
+      <li><a href="https://www.linkedin.com/in/mahmoudzohdi/">LinkedIn</a></li>
+      <li><a href="https://github.com/mahmoudzohdi">GitHub</a></li>
+      <li><a href="https://www.youtube.com/user/MahmoudAlaaChannel">YouTube</a></li>
+      <li><a href="https://medium.com/@mahmoud.zohdi">Medium</a></li>
+    </ul>
+    <p class="palette-hint">Prefer the keyboard? <button data-open-palette>Press <kbd class="mod">⌘</kbd> <kbd>K</kbd></button></p>
+  </div>
+
+  <div>
+    <div class="shell" id="shell">
+      <div class="shell-bar">
+        <strong>One product</strong>
+        <button class="kbd-btn" data-open-palette aria-label="Open command palette"><span class="keys"><kbd class="mod">⌘</kbd><kbd>K</kbd></span><span class="touch-label"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Commands</span></button>
+        <button class="inspect" id="inspect" aria-pressed="false">Inspect</button>
+      </div>
+
+      <div class="mosaic is-scattered" id="mosaic">
+        <div class="tile t-me" data-remote="profile" data-fw="Vue" data-v="1.0.0">
+          <p class="bubble" id="bubble" aria-live="polite"></p>
+        </div>
+
+        <div class="tile t-search" data-remote="search" data-fw="React" data-v="1.4.0">
+          <label class="field">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
+            <input id="stack-search" type="search" placeholder="Search my stack, try “node”" aria-label="Search my stack" />
+            <kbd>/</kbd>
+          </label>
+        </div>
+
+        <div class="tile t-theme" data-remote="theme" data-fw="Vue" data-v="1.2.0">
+          <button class="switch" id="theme" role="switch" aria-checked="false" aria-labelledby="theme-label"></button>
+          <p class="tile-label" id="theme-label">Dark mode</p>
+        </div>
+
+        <div class="tile t-stack" data-remote="stack" data-fw="Vue" data-v="2.0.0">
+          <ul class="chips" id="chips">
+            <li class="daily">React</li><li>Next.js</li><li class="daily">Vue</li><li>Nuxt</li><li>Angular</li><li class="daily">TypeScript</li><li class="daily">Node.js</li><li>NestJS</li>
+          </ul>
+          <p class="tile-label" id="chips-empty" hidden>Nothing matches yet.</p>
+          <p class="tile-label daily-note">Marked: what I use every day</p>
+        </div>
+
+        <div class="tile t-status" data-remote="status" data-fw="React" data-v="1.1.0">
+          <p class="release" id="release">All green</p>
+          <ol class="steps" id="steps"><li>Build</li><li>Test</li><li>Deploy</li></ol>
+        </div>
+
+        <div class="tile t-ship" data-remote="deploy" data-fw="React" data-v="1.3.0">
+          <p class="tile-label" id="next-release"></p>
+          <button class="ship" id="ship">Ship it</button>
+        </div>
+
+        <div class="tile t-events" data-remote="events" data-fw="Shell" data-v="1.0.0">
+          <p class="tile-label">Event bus</p>
+          <ol class="log" id="log"></ol>
+        </div>
+
+        <div class="tile t-tokens" data-remote="tokens" data-fw="CSS" data-v="3.0.0">
+          <div class="swatches" role="group" aria-label="Accent colour">
+            <button class="swatch" data-accent="blue" aria-pressed="true" aria-label="Egyptian blue" style="background:#1d3db0"></button>
+            <button class="swatch" data-accent="faience" aria-pressed="false" aria-label="Faience turquoise" style="background:#1f7f75"></button>
+            <button class="swatch" data-accent="graphite" aria-pressed="false" aria-label="Graphite" style="background:#2b3140"></button>
+          </div>
+          <p class="tile-label">Accent</p>
+        </div>
+
+        <section class="tile t-contact" data-remote="contact" data-fw="Vue" data-v="2.0.0" data-critical id="contact" aria-labelledby="contact-title">
+          <div>
+            <h2 id="contact-title">Say hello</h2>
+            <p class="lede">Hiring, building something, or just curious? Drop me a line. <span id="cairo"></span></p>
+          </div>
+          <div class="contact-actions">
+            <a class="address" href="mailto:hello@zohdi.me" data-mailto>hello@zohdi.me</a>
+            <div class="send">
+              <button class="primary" type="button" id="copy-email">Copy email</button>
+              <button class="secondary" type="button" id="send-linkedin">Message on LinkedIn</button>
+            </div>
+            <p class="contact-status" id="contact-status" aria-live="polite"></p>
+          </div>
+          <!-- Later: real sending through a Cloudflare Worker (Reply-To = visitor, Turnstile). Unhide this form then. -->
+          <form class="contact-form" id="contact-form" hidden>
+            <fieldset class="intents">
+              <legend class="sr-only">What is it about?</legend>
+              <input type="radio" name="intent" id="i-hiring" value="hiring" /><label for="i-hiring">Hiring</label>
+              <input type="radio" name="intent" id="i-collab" value="collab" /><label for="i-collab">Collaboration</label>
+              <input type="radio" name="intent" id="i-hi" value="hi" checked /><label for="i-hi">Just saying hi</label>
+            </fieldset>
+            <label class="sr-only" for="sender">Your email</label>
+            <input class="message" id="sender" name="email" type="email" autocomplete="email" required placeholder="Your email, so I can reply" />
+            <label class="sr-only" for="message">Your message</label>
+            <textarea class="message" id="message" name="message" rows="2" required placeholder="Hi Mahmoud, I'd love to talk about…"></textarea>
+            <div class="send">
+              <button class="primary" type="submit" id="send-btn">Send message</button>
+            </div>
+          </form>
+        </section>
+      </div>
+      <div class="wires" id="wires" aria-hidden="true"></div>
+    </div>
+    <p class="caption">Nine small apps composed into one product. Press Inspect to see the seams, unplug a piece, or ship a release.</p>
+  </div>
+</section>
+
+<section class="section" id="experience" aria-labelledby="exp-title">
+  <div class="section-head"><h2 id="exp-title">Experience</h2></div>
+  <p class="sub">12 years across four cities: on-site in Cairo and Riyadh, then remote from Egypt for teams based in Berlin and New York.</p>
+
+  <ol class="route" role="tablist" aria-label="Where I've worked">
+    <li class="">
+      <button class="stop" role="tab" id="stop-cairo" aria-controls="panel-cairo" aria-selected="false" tabindex="-1" data-mode="onsite">
+        <span class="node" aria-hidden="true"></span><span class="city">Cairo</span><span class="years">2014 – 2019</span><span class="who">elmenus and 4 more</span><span class="mode">On-site</span>
+      </button>
+    </li>
+    <li class="next-remote">
+      <button class="stop" role="tab" id="stop-riyadh" aria-controls="panel-riyadh" aria-selected="false" tabindex="-1" data-mode="onsite">
+        <span class="node" aria-hidden="true"></span><span class="city">Riyadh</span><span class="years">2019 – 2020</span><span class="who">Ministry of Justice</span><span class="mode">On-site</span>
+      </button>
+    </li>
+    <li class="next-remote">
+      <button class="stop" role="tab" id="stop-berlin" aria-controls="panel-berlin" aria-selected="false" tabindex="-1" data-mode="remote">
+        <span class="node" aria-hidden="true"></span><span class="city">Berlin</span><span class="years">2020 – 2022</span><span class="who">Delivery Hero</span><span class="mode">Remote during COVID</span>
+      </button>
+    </li>
+    <li>
+      <button class="stop" role="tab" id="stop-ny" aria-controls="panel-ny" aria-selected="true" tabindex="0" data-mode="remote">
+        <span class="node" aria-hidden="true"></span><span class="city">New York</span><span class="years">2022 – now</span><span class="who">OffSec</span><span class="mode">Remote from Egypt</span>
+      </button>
+    </li>
+  </ol>
+
+  <article class="stop-panel" id="panel-ny" role="tabpanel" aria-labelledby="stop-ny">
+    <div>
+      <h3>Software Engineer</h3>
+      <p class="company"><svg class="co-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 9h2a2 2 0 0 1 2 2v10"/><path d="M3 21h18M8 7h4M8 11h4M8 15h4"/></svg>OffSec</p>
+      <p class="when">Jan 2022 – now</p>
+      <p class="when">Remote from Egypt. OffSec is based in New York.</p>
+    </div>
+    <div>
+      <p class="lede">Building the cybersecurity learning platform where security professionals take courses, practice in hands-on labs, and earn certifications.</p>
+      <ul class="points">
+        <li>Built React and TypeScript micro-frontends that plug into the platform's Vue shell through Module Federation.</li>
+        <li>Shipped Certificates of Completion end to end: an event-driven flow across NestJS services, the API, and what learners see.</li>
+        <li>Long-time contributor to the core platform, the admin back-office, and the React and Vue design systems.</li>
+      </ul>
+      <ul class="tags"><li>Vue 3</li><li>React</li><li>TypeScript</li><li>Node.js</li><li>NestJS</li><li>Module Federation</li><li>Turborepo</li></ul>
+    </div>
+  </article>
+
+  <article class="stop-panel" id="panel-berlin" role="tabpanel" aria-labelledby="stop-berlin" hidden>
+    <div>
+      <h3>Frontend Software Engineer II</h3>
+      <p class="company"><svg class="co-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 9h2a2 2 0 0 1 2 2v10"/><path d="M3 21h18M8 7h4M8 11h4M8 15h4"/></svg>Delivery Hero</p>
+      <p class="when">Nov 2020 – Jun 2022</p>
+      <p class="when">Hired for the Berlin office; worked remotely from Egypt during the pandemic.</p>
+    </div>
+    <div>
+      <p class="lede">Worked on a React app that centralizes master product data across Delivery Hero's platforms worldwide.</p>
+      <ul class="points">
+        <li>Built dynamic fields that other platforms can customize to their own needs.</li>
+        <li>Built reusable packages for other teams.</li>
+      </ul>
+      <ul class="tags"><li>React</li><li>TypeScript</li><li>Ant Design</li></ul>
+    </div>
+  </article>
+
+  <article class="stop-panel" id="panel-riyadh" role="tabpanel" aria-labelledby="stop-riyadh" hidden>
+    <div>
+      <h3>Senior Frontend Developer</h3>
+      <p class="company"><svg class="co-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 9h2a2 2 0 0 1 2 2v10"/><path d="M3 21h18M8 7h4M8 11h4M8 15h4"/></svg>Ministry of Justice</p>
+      <p class="when">Jan 2019 – Oct 2020</p>
+      <p class="when">On-site in Riyadh, Saudi Arabia.</p>
+    </div>
+    <div>
+      <p class="lede">Built a new version of the Ministry of Justice portal with Vue.js.</p>
+      <ul class="points">
+        <li>Handled very large forms, some with more than 100 fields.</li>
+      </ul>
+      <ul class="tags"><li>Vue.js</li><li>Pug</li><li>Sass</li><li>Webpack</li></ul>
+    </div>
+  </article>
+
+  <article class="stop-panel" id="panel-cairo" role="tabpanel" aria-labelledby="stop-cairo" hidden>
+    <div>
+      <h3>Senior Front-End Engineer</h3>
+      <p class="company"><svg class="co-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 9h2a2 2 0 0 1 2 2v10"/><path d="M3 21h18M8 7h4M8 11h4M8 15h4"/></svg>elmenus</p>
+      <p class="when">Sep 2017 – Jan 2019</p>
+      <p class="when">On-site in Cairo, Egypt.</p>
+    </div>
+    <div>
+      <p class="lede">Rebuilt the elmenus web app, CRM, and Live Tracker, and introduced new features such as online ordering.</p>
+      <ul class="tags"><li>Vue.js</li><li>React</li><li>Node.js</li></ul>
+      <p class="earlier-title">Earlier in Cairo</p>
+      <ul class="earlier">
+        <li><b>Front-End Developer</b><span class="company"><svg class="co-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 9h2a2 2 0 0 1 2 2v10"/><path d="M3 21h18M8 7h4M8 11h4M8 15h4"/></svg>Integrated Development</span><span class="yr">2017</span><span>A hotel and flight booking system, built with Angular.</span></li>
+        <li><b>Front-End Developer</b><span class="company"><svg class="co-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 9h2a2 2 0 0 1 2 2v10"/><path d="M3 21h18M8 7h4M8 11h4M8 15h4"/></svg>webkeyz</span><span class="yr">2015 – 2016</span><span>Client websites, including Telecom Egypt.</span></li>
+        <li><b>UI Developer</b><span class="company"><svg class="co-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 9h2a2 2 0 0 1 2 2v10"/><path d="M3 21h18M8 7h4M8 11h4M8 15h4"/></svg>NTG Clarity</span><span class="yr">2015 – 2016</span><span>Freelance work on an enterprise portfolio-management product.</span></li>
+        <li><b>Junior UI Developer</b><span class="company"><svg class="co-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 9h2a2 2 0 0 1 2 2v10"/><path d="M3 21h18M8 7h4M8 11h4M8 15h4"/></svg>Media Pan Arab</span><span class="yr">2014 – 2015</span><span>My first role: turning designs into web pages.</span></li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<section class="section" id="now" aria-labelledby="now-title">
+  <div class="section-head">
+    <h2 id="now-title">Now</h2>
+    <p class="updated" id="now-updated" hidden>Updated <time datetime="2026-10-15">October 2026</time></p>
+  </div>
+  <p class="sub">What I'm focused on these days.</p>
+  <ul class="now-grid">
+    <li><h3>Shipping end to end with AI</h3><p>Using AI-assisted workflows to ship features across the stack: frontend first, backend when the feature needs it.</p></li>
+    <li><h3>Owning what I build</h3><p>Taking features from idea to launch at work, leading product initiatives end to end, and leading a team on my side projects.</p></li>
+    <li><h3>Mentoring</h3><p>One-to-one sessions helping developers grow.</p></li>
+    <li><h3>Starting to share</h3><p>Picking my YouTube channel back up and starting to write.</p></li>
+  </ul>
+</section>
+</main>
+
+<footer class="site-footer">
+  <p class="hello">Say hello at <a href="mailto:hello@zohdi.me" data-mailto>hello@zohdi.me</a></p>
+  <ul class="links">
+    <li><a href="https://www.linkedin.com/in/mahmoudzohdi/">LinkedIn</a></li>
+    <li><a href="https://github.com/mahmoudzohdi">GitHub</a></li>
+    <li><a href="https://www.youtube.com/user/MahmoudAlaaChannel">YouTube</a></li>
+    <li><a href="https://medium.com/@mahmoud.zohdi">Medium</a></li>
+  </ul>
+  <p>© 2026 Mahmoud Zohdi</p>
+</footer>
+
+<dialog class="palette" id="palette" aria-label="Command palette">
+  <input class="palette-input" id="palette-input" role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list" placeholder="Type a command" autocomplete="off" />
+  <ul id="palette-list" role="listbox"></ul>
+  <p class="empty" id="palette-empty" hidden>No command matches that.</p>
+</dialog>
+
+<script>
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const root = document.documentElement;
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const EMAIL = "hello@zohdi.me"; // placeholder until Email Routing is set up
+  const LINKEDIN = "https://www.linkedin.com/in/mahmoudzohdi/";
+  const CV = "https://drive.google.com/file/d/1bUjVPo0Y2Rz0wHRqZy3wi9a1vfL7F0OC/view";
+
+  const shell = $("#shell"), mosaic = $("#mosaic"), wires = $("#wires"), log = $("#log");
+  const tile = (name) => $(`[data-remote="${name}"]`);
+  const titleCase = (s) => s[0].toUpperCase() + s.slice(1);
+
+  /* ---------- inspector chrome for every remote ---------- */
+  $$(".tile").forEach((t) => {
+    const name = titleCase(t.dataset.remote);
+    const badge = document.createElement("span");
+    badge.className = "badge";
+    badge.innerHTML = `<b></b><i class="ver"></i>`;
+    badge.querySelector("b").textContent = name;
+    badge.querySelector(".ver").textContent = t.dataset.v;
+    if (t.hasAttribute("data-critical")) {
+      const crit = document.createElement("i");
+      crit.className = "crit"; crit.textContent = "always on"; crit.title = "Critical path: this piece is never unplugged";
+      badge.append(crit);
+    } else {
+      const unplug = document.createElement("button");
+      unplug.className = "unplug"; unplug.setAttribute("aria-pressed", "false"); unplug.setAttribute("aria-label", `Unplug ${name}`);
+      unplug.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3v9M6.6 6.6a8 8 0 1 0 10.8 0"/></svg>`;
+      unplug.addEventListener("click", () => (t.classList.contains("is-down") ? recover(t) : crash(t)));
+      const fallback = document.createElement("div");
+      fallback.className = "fallback";
+      fallback.innerHTML = `<p></p><button type="button">Retry</button>`;
+      fallback.querySelector("p").textContent = `${name} is offline`;
+      fallback.querySelector("button").addEventListener("click", () => recover(t));
+      t.append(unplug, fallback);
+    }
+    t.prepend(badge);
+  });
+
+  /* ---------- event bus: log + visible pulse ---------- */
+  function center(el) {
+    const s = shell.getBoundingClientRect(), r = el.getBoundingClientRect();
+    return [r.left - s.left + r.width / 2, r.top - s.top + r.height / 2];
+  }
+  async function travel(from, to) {
+    const dot = document.createElement("span");
+    dot.className = "dot"; wires.append(dot);
+    const [x1, y1] = center(from), [x2, y2] = center(to);
+    await dot.animate(
+      [{ transform: `translate(${x1}px, ${y1}px)`, opacity: 0.2 }, { transform: `translate(${x2}px, ${y2}px)`, opacity: 1 }],
+      { duration: 480, easing: "cubic-bezier(.4, 0, .2, 1)" }
+    ).finished.catch(() => {});
+    dot.remove();
+  }
+  function flash(el) { el.classList.add("got"); setTimeout(() => el.classList.remove("got"), 450); }
+  async function pulse(from, targets) {
+    if (reduce || !from || shell.offsetParent === null) return;
+    const bus = tile("events");
+    if (from !== bus) { await travel(from, bus); flash(bus); }
+    targets.forEach((t) => travel(bus, t).then(() => flash(t)));
+  }
+  function emit(name, payload, from, targets = []) {
+    const li = document.createElement("li");
+    li.innerHTML = "<b></b><span></span>";
+    li.querySelector("b").textContent = name;
+    li.querySelector("span").textContent = payload;
+    log.prepend(li);
+    while (log.children.length > 6) log.lastChild.remove();
+    pulse(from, targets);
+  }
+
+  /* ---------- assembly on load ---------- */
+  function assemble() {
+    emit("shell:mounted", "zohdi.me");
+    $$(".tile", mosaic).forEach((t, i) => {
+      t.style.setProperty("--dx", (Math.random() * 240 - 120).toFixed(0) + "px");
+      t.style.setProperty("--dy", (Math.random() * 180 - 90).toFixed(0) + "px");
+      t.style.setProperty("--rot", (Math.random() * 24 - 12).toFixed(1) + "deg");
+      const delay = reduce ? 0 : 200 + i * 100;
+      t.style.transitionDelay = delay + "ms";
+      setTimeout(() => emit("remote:loaded", t.dataset.remote), delay + 300);
+    });
+    mosaic.offsetWidth; // commit the scattered state before assembling
+    mosaic.classList.remove("is-scattered");
+    setTimeout(() => $$(".tile", mosaic).forEach((t) => (t.style.transitionDelay = "")), 2000);
+  }
+
+  /* ---------- inspect ---------- */
+  const inspectBtn = $("#inspect");
+  function setInspect(on) {
+    inspectBtn.setAttribute("aria-pressed", on);
+    shell.classList.toggle("is-inspecting", on);
+    emit("shell:inspect", on ? "on" : "off", inspectBtn);
+  }
+  inspectBtn.addEventListener("click", () => setInspect(inspectBtn.getAttribute("aria-pressed") !== "true"));
+
+  /* ---------- break it safely ---------- */
+  function crash(t) {
+    t.classList.add("is-down");
+    $(".unplug", t).setAttribute("aria-pressed", "true");
+    if (t.dataset.remote === "search") filterStack(""); // the stack keeps working without search
+    emit("remote:error", t.dataset.remote, t);
+  }
+  function recover(t) {
+    const retry = $(".fallback button", t);
+    retry.textContent = "Loading…"; retry.disabled = true;
+    setTimeout(() => {
+      t.classList.remove("is-down");
+      $(".unplug", t).setAttribute("aria-pressed", "false");
+      retry.textContent = "Retry"; retry.disabled = false;
+      emit("remote:recovered", t.dataset.remote, t);
+    }, reduce ? 0 : 700);
+  }
+
+  /* ---------- theme + tokens ---------- */
+  const accents = {
+    blue: { light: "#1d3db0", dark: "#7d95ff" },
+    faience: { light: "#1f7f75", dark: "#5fd1c3" },
+    graphite: { light: "#2b3140", dark: "#c9cfdb" },
+  };
+  let accent = "blue", followSystem = false;
+  const applyAccent = () => root.style.setProperty("--accent", accents[accent][root.dataset.theme]);
+  const themeSwitch = $("#theme");
+  function setTheme(mode, source) {
+    root.dataset.theme = mode;
+    themeSwitch.setAttribute("aria-checked", mode === "dark");
+    applyAccent();
+    emit("theme:change", mode, source);
+  }
+  themeSwitch.addEventListener("click", () => setTheme(root.dataset.theme === "dark" ? "light" : "dark", tile("theme")));
+  const systemDark = matchMedia("(prefers-color-scheme: dark)");
+  systemDark.addEventListener("change", (e) => followSystem && setTheme(e.matches ? "dark" : "light", tile("theme")));
+  applyAccent();
+
+  $$(".swatch").forEach((sw) =>
+    sw.addEventListener("click", () => {
+      accent = sw.dataset.accent;
+      $$(".swatch").forEach((s) => s.setAttribute("aria-pressed", s === sw));
+      applyAccent();
+      emit("tokens:accent", accent, tile("tokens"));
+    })
+  );
+
+  /* ---------- search -> stack ---------- */
+  const chips = $$("#chips li");
+  function filterStack(q) {
+    let shown = 0;
+    chips.forEach((li) => {
+      const name = li.dataset.name || (li.dataset.name = li.textContent);
+      const at = name.toLowerCase().indexOf(q);
+      li.hidden = Boolean(q) && at === -1;
+      if (!li.hidden) shown++;
+      li.textContent = name;
+      if (q && at > -1) {
+        li.textContent = "";
+        const mark = document.createElement("mark");
+        mark.textContent = name.slice(at, at + q.length);
+        li.append(name.slice(0, at), mark, name.slice(at + q.length));
       }
-      gtag("js", new Date());
+    });
+    $("#chips-empty").hidden = shown > 0;
+  }
+  let searchTimer;
+  $("#stack-search").addEventListener("input", (e) => {
+    const q = e.target.value.trim().toLowerCase();
+    filterStack(q);
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => emit("search:query", q ? `"${q}"` : "cleared", tile("search"), [tile("stack")]), 250);
+  });
 
-      gtag("config", "UA-118598001-1");
-    </script>
-  </head>
+  /* ---------- independent deploys ---------- */
+  const releases = [
+    { remote: "search", to: "1.5.0", note: "Press / to search", apply: () => tile("search").classList.add("has-slash") },
+    { remote: "stack", to: "2.1.0", note: "Marks my daily tools", apply: () => tile("stack").classList.add("shows-daily") },
+    { remote: "theme", to: "1.3.0", note: "Follows your system theme", apply: () => { followSystem = true; $("#theme-label").textContent = "Dark mode, follows system"; } },
+  ];
+  const shipBtn = $("#ship"), steps = $$("#steps li"), releaseLabel = $("#release"), nextLabel = $("#next-release");
+  const showNext = () => {
+    const r = releases[0];
+    nextLabel.textContent = r ? `Next: ${titleCase(r.remote)} ${r.to}` : "Everything is live";
+    shipBtn.disabled = !r;
+  };
+  showNext();
+  const wait = (ms) => new Promise((res) => setTimeout(res, reduce ? 0 : ms));
+  async function shipNext() {
+    const r = releases[0];
+    if (!r || shipBtn.disabled) return;
+    const target = tile(r.remote), status = tile("status");
+    shipBtn.disabled = true;
+    emit("deploy:start", `${r.remote}@${r.to}`, tile("deploy"), [status]);
+    releaseLabel.textContent = `${titleCase(r.remote)} ${r.to}`;
+    steps.forEach((s) => (s.className = ""));
+    target.classList.add("is-updating");
+    for (const s of steps) { s.className = "active"; await wait(650); s.className = "done"; }
+    r.apply();
+    const ver = $(".badge .ver", target);
+    ver.textContent = r.to; ver.classList.add("bumped");
+    target.dataset.v = r.to;
+    target.classList.remove("is-updating");
+    releaseLabel.textContent = `${titleCase(r.remote)} ${r.to} is live. ${r.note}.`;
+    emit("deploy:done", `${r.remote}@${r.to}`, status, [target]);
+    releases.shift();
+    showNext();
+  }
+  shipBtn.addEventListener("click", shipNext);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "/" && tile("search").classList.contains("has-slash") && !e.target.closest("input, textarea")) {
+      e.preventDefault(); $("#stack-search").focus();
+    }
+  });
 
-  <body>
-    <section class="profile-content">
-      <article>
-        <figure>
-          <img
-            src="images/zohdi-pic.png"
-            draggable="false"
-            title="Mahmoud Zohdi"
-            alt="Mahmoud Zohdi"
-            class="my-pic"
-          />
-          <figcaption>
-            <h1 class="my-name">Mahmoud Zohdi</h1>
-            <h2 class="job-title">Senior Software Engineer</h2>
-            <ul class="social-links">
-              <li>
-                <a
-                  target="_blank"
-                  title="Mahmoud Zohdi on facebook"
-                  href="https://www.facebook.com/mahmoud.alaa.mahmoud"
-                >
-                  <img
-                    draggable="false"
-                    src="images/icons/facebook.png"
-                    alt="Mahmoud Zohdi on facebook"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  title="Mahmoud Zohdi on twitter"
-                  href="https://twitter.com/ZohdiMahmoud"
-                >
-                  <img
-                    draggable="false"
-                    src="images/icons/twitter.png"
-                    alt="Mahmoud Zohdi on twitter"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  title="Mahmoud Zohdi on linkedin"
-                  href="https://www.linkedin.com/in/mahmoudzohdi/"
-                >
-                  <img
-                    draggable="false"
-                    src="images/icons/linkedin.png"
-                    alt="Mahmoud Zohdi on linkedin"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  title="Mahmoud Zohdi on github"
-                  href="https://github.com/mahmoudzohdi"
-                >
-                  <img
-                    draggable="false"
-                    src="images/icons/github.png"
-                    alt="Mahmoud Zohdi on github"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  title="Mahmoud Zohdi on codepen"
-                  href="https://codepen.io/mahmoudzohdi/"
-                >
-                  <img
-                    draggable="false"
-                    src="images/icons/codepen.png"
-                    alt="Mahmoud Zohdi on codepen"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  title="Mahmoud Zohdi on youtube"
-                  href="https://www.youtube.com/user/MahmoudAlaaChannel"
-                >
-                  <img
-                    draggable="false"
-                    src="images/icons/youtube.png"
-                    alt="Mahmoud Zohdi on youtube"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  title="Mahmoud Zohdi on medium"
-                  href="https://medium.com/@mahmoud.zohdi"
-                >
-                  <img
-                    draggable="false"
-                    src="images/icons/medium.png"
-                    alt="Mahmoud Zohdi on medium"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  title="Mahmoud Zohdi CV"
-                  href="https://drive.google.com/file/d/1bUjVPo0Y2Rz0wHRqZy3wi9a1vfL7F0OC/view"
-                >
-                  <img
-                    draggable="false"
-                    src="images/icons/cv.png"
-                    alt="Mahmoud Zohdi CV"
-                  />
-                </a>
-              </li>
-            </ul>
-          </figcaption>
-        </figure>
-      </article>
-    </section>
-  </body>
+  /* ---------- contact (critical path) ---------- */
+  const form = $("#contact-form"), message = $("#message"), statusLine = $("#contact-status"), bubble = $("#bubble");
+  const subjects = { hiring: "A role you might like", collab: "Let's build something", hi: "Hello from zohdi.me" };
+  let bubbleTimer;
+  function say(text) {
+    if (tile("profile").classList.contains("is-down")) return;
+    bubble.textContent = text; bubble.classList.add("show");
+    clearTimeout(bubbleTimer);
+    bubbleTimer = setTimeout(() => bubble.classList.remove("show"), 2600);
+  }
+  const intent = () => form.intent.value;
+  const body = () => message.value.trim() || "Hi Mahmoud,";
+  let greeted = false;
+  message.addEventListener("focus", () => { if (!greeted) { greeted = true; say("Hi there!"); emit("contact:typing", intent(), tile("contact"), [tile("profile")]); } });
+  $$('input[name="intent"]').forEach((r) => r.addEventListener("change", () => emit("contact:intent", r.value, tile("contact"), [tile("profile")])));
+  // Real build: POST to a Cloudflare Worker that emails hello@zohdi.me (Reply-To = sender).
+  // Prototype: simulated, and it says so.
+  const CONTACT_ENDPOINT = null;
+  const sendBtn = $("#send-btn"), sender = $("#sender");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    sendBtn.disabled = true; sendBtn.textContent = "Sending…";
+    statusLine.textContent = "";
+    emit("contact:send", intent(), tile("contact"), [tile("profile")]);
+    try {
+      if (CONTACT_ENDPOINT) {
+        const res = await fetch(CONTACT_ENDPOINT, { method: "POST", headers: { "content-type": "application/json" },
+          body: JSON.stringify({ email: sender.value.trim(), intent: intent(), subject: subjects[intent()], message: body() }) });
+        if (!res.ok) throw new Error(res.status);
+      } else {
+        await wait(900);
+      }
+      statusLine.textContent = `Sent. I'll reply to ${sender.value.trim()} soon.` + (CONTACT_ENDPOINT ? "" : " (Prototype: nothing was actually sent.)");
+      say("Talk soon!");
+      message.value = "";
+      emit("contact:sent", "ok", tile("contact"), [tile("profile")]);
+    } catch {
+      statusLine.textContent = `That didn't go through. Email me directly at ${EMAIL}.`;
+      emit("contact:failed", "retry", tile("contact"));
+    } finally {
+      sendBtn.disabled = false; sendBtn.textContent = "Send message";
+    }
+  });
+  $("#send-linkedin").addEventListener("click", async () => {
+    let copied = false;
+    if (!form.hidden && message.value.trim()) {
+      try { await navigator.clipboard.writeText(body()); copied = true; } catch {}
+    }
+    statusLine.textContent = copied
+      ? "Your message is copied. Paste it into a LinkedIn message."
+      : "Opening LinkedIn. Send me a message from my profile.";
+    say("Talk soon!");
+    emit("contact:send", "linkedin", tile("contact"), [tile("profile")]);
+    window.open(LINKEDIN, "_blank", "noopener");
+  });
+  $("#copy-email").addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(EMAIL); statusLine.textContent = `Copied ${EMAIL}. Talk soon!`; say("Talk soon!"); }
+    catch { statusLine.textContent = `My email is ${EMAIL}.`; }
+    emit("contact:copy", "email", tile("contact"));
+  });
+  function cairoTime() {
+    const now = new Date();
+    const time = new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Cairo", hour: "2-digit", minute: "2-digit" }).format(now);
+    const hour = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Cairo", hour: "numeric", hourCycle: "h23" }).format(now));
+    $("#cairo").textContent = hour >= 8 && hour < 23
+      ? `It's ${time} in Cairo, so I'm probably around.`
+      : `It's ${time} in Cairo, so I'm probably asleep. I'll reply in the morning.`;
+  }
+  cairoTime(); setInterval(cairoTime, 30000);
+  function goToContact() {
+    tile("contact").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+    (form.hidden ? $("#copy-email") : message).focus({ preventScroll: true });
+  }
+  $$("[data-say-hello]").forEach((b) => b.addEventListener("click", goToContact));
+
+  /* ---------- command palette ---------- */
+  const platform = navigator.userAgentData?.platform || navigator.platform || "";
+  const isApple = /mac|iphone|ipad|ios/i.test(platform);
+  if (!isApple) $$("kbd.mod").forEach((k) => (k.textContent = "Ctrl"));
+  const palette = $("#palette"), pInput = $("#palette-input"), pList = $("#palette-list"), pEmpty = $("#palette-empty");
+  const commands = [
+    { label: "Say hello", hint: "Email or LinkedIn", run: goToContact },
+    { label: "Download CV", hint: "Opens Google Drive", run: () => window.open(CV, "_blank", "noopener") },
+    { label: "Open LinkedIn", hint: "linkedin.com", run: () => window.open(LINKEDIN, "_blank", "noopener") },
+    { label: "Open GitHub", hint: "github.com", run: () => window.open("https://github.com/mahmoudzohdi", "_blank", "noopener") },
+    { label: "Toggle dark mode", hint: "Theme", run: () => setTheme(root.dataset.theme === "dark" ? "light" : "dark", $(".kbd-btn")) },
+    { label: "Inspect the composition", hint: "Show the seams", run: () => setInspect(inspectBtn.getAttribute("aria-pressed") !== "true") },
+    { label: "Ship the next release", hint: "Deploy", run: shipNext },
+    { label: "Copy my email", hint: EMAIL, run: () => $("#copy-email").click() },
+    { label: "Go to Experience", hint: "Section", run: () => $("#experience").scrollIntoView({ behavior: reduce ? "auto" : "smooth" }) },
+    { label: "Go to Now", hint: "Section", run: () => $("#now").scrollIntoView({ behavior: reduce ? "auto" : "smooth" }) },
+  ];
+  let matches = commands, active = 0;
+  function renderPalette() {
+    const q = pInput.value.trim().toLowerCase();
+    matches = commands.filter((c) => c.label.toLowerCase().includes(q) || c.hint.toLowerCase().includes(q));
+    active = Math.min(active, Math.max(0, matches.length - 1));
+    pList.textContent = "";
+    matches.forEach((c, i) => {
+      const li = document.createElement("li");
+      li.id = "cmd-" + i; li.setAttribute("role", "option"); li.setAttribute("aria-selected", i === active);
+      li.innerHTML = "<b></b><span></span>";
+      li.querySelector("b").textContent = c.label; li.querySelector("b").style.fontWeight = 500;
+      li.querySelector("span").textContent = c.hint;
+      li.addEventListener("click", () => runCommand(i));
+      li.addEventListener("mousemove", () => { if (active !== i) { active = i; renderPalette(); } });
+      pList.append(li);
+    });
+    pEmpty.hidden = matches.length > 0;
+    pInput.setAttribute("aria-activedescendant", matches.length ? "cmd-" + active : "");
+  }
+  function openPalette() { pInput.value = ""; active = 0; renderPalette(); palette.showModal(); pInput.focus(); }
+  function runCommand(i) {
+    const c = matches[i]; if (!c) return;
+    palette.close();
+    emit("palette:run", c.label.toLowerCase(), $(".kbd-btn"));
+    c.run();
+  }
+  pInput.addEventListener("input", () => { active = 0; renderPalette(); });
+  pInput.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown") { active = (active + 1) % Math.max(1, matches.length); renderPalette(); e.preventDefault(); }
+    if (e.key === "ArrowUp") { active = (active - 1 + matches.length) % Math.max(1, matches.length); renderPalette(); e.preventDefault(); }
+    if (e.key === "Enter") { runCommand(active); e.preventDefault(); }
+  });
+  palette.addEventListener("click", (e) => { if (e.target === palette) palette.close(); });
+  $$("[data-open-palette]").forEach((b) => b.addEventListener("click", openPalette));
+  document.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); palette.open ? palette.close() : openPalette(); }
+  });
+
+  /* ---------- experience: journey by city ---------- */
+  const stops = $$(".stop");
+  function selectStop(stop, focus) {
+    stops.forEach((s) => {
+      const on = s === stop;
+      s.setAttribute("aria-selected", on);
+      s.tabIndex = on ? 0 : -1;
+      $("#" + s.getAttribute("aria-controls")).hidden = !on;
+    });
+    if (focus) stop.focus();
+  }
+  stops.forEach((s, i) => {
+    s.addEventListener("click", () => selectStop(s));
+    s.addEventListener("keydown", (e) => {
+      const next = { ArrowRight: i + 1, ArrowDown: i + 1, ArrowLeft: i - 1, ArrowUp: i - 1, Home: 0, End: stops.length - 1 }[e.key];
+      if (next === undefined) return;
+      e.preventDefault();
+      selectStop(stops[(next + stops.length) % stops.length], true);
+    });
+  });
+
+  /* ---------- now: the badge only shows while it's fresh ---------- */
+  const updated = $("#now-updated time");
+  const ageDays = (Date.now() - new Date(updated.dateTime).getTime()) / 86400000;
+  $("#now-updated").hidden = ageDays > 120;
+
+  /* ---------- shorter hints on narrow screens ---------- */
+  const narrow = matchMedia("(max-width: 400px)");
+  function fitHints() {
+    $("#stack-search").placeholder = narrow.matches ? "Try “node”" : "Search my stack, try “node”";
+    message.placeholder = narrow.matches ? "Write me a line…" : "Hi Mahmoud, I'd love to talk about…";
+  }
+  narrow.addEventListener("change", fitHints);
+  fitHints();
+
+  /* ---------- email links: new tab on desktop (webmail compose keeps the site open), mail app on phones ---------- */
+  const touchFirst = matchMedia("(hover: none) and (pointer: coarse)");
+  function setMailTargets() {
+    $$("[data-mailto]").forEach((a) => {
+      if (touchFirst.matches) { a.removeAttribute("target"); a.removeAttribute("rel"); }
+      else { a.target = "_blank"; a.rel = "noopener"; }
+    });
+  }
+  touchFirst.addEventListener("change", setMailTargets);
+  setMailTargets();
+
+  /* ---------- every outside link opens in a new tab ---------- */
+  $$('a[href^="http"]').forEach((link) => { link.target = "_blank"; link.rel = "noopener"; });
+
+  assemble();
+</script>
+</body>
 </html>

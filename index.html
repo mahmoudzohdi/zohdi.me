@@ -30,6 +30,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="preload" as="image" href="images/zohdi-pic.webp" type="image/webp" fetchpriority="high" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -215,7 +216,7 @@
   .dot { position: absolute; top: 0; left: 0; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
 
   /* ---------- tiles ---------- */
-  .t-me { grid-area: me; background: var(--accent) url(images/zohdi-pic.png) center bottom / auto 94% no-repeat; place-items: start end; align-content: start; }
+  .t-me { grid-area: me; background: var(--accent) url(images/zohdi-pic.webp) center bottom / auto 94% no-repeat; place-items: start end; align-content: start; }
   .t-me.is-down { background: var(--paper); }
   .bubble {
     margin: 0; max-width: 90%; padding: 7px 11px; border-radius: 12px 12px 4px 12px;

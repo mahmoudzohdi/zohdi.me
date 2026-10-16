@@ -39,6 +39,7 @@
 <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="preload" as="image" href="images/zohdi-pic.webp" type="image/webp" fetchpriority="high" />
+<script defer src="https://cloud.umami.is/script.js" data-website-id="2b364816-579c-476f-8b2a-5e5a7c14c8e7" data-domains="zohdi.me"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -714,6 +715,11 @@
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const EMAIL = "hello@zohdi.me"; // placeholder until Email Routing is set up
   const LINKEDIN = "https://www.linkedin.com/in/mahmoudzohdi/";
+
+  /* ---------- analytics: every event goes through here, so switching provider means changing only this ---------- */
+  function track(name, data) {
+    try { if (window.umami) window.umami.track(name, data); } catch {}
+  }
   const CV = "https://drive.google.com/file/d/1bUjVPo0Y2Rz0wHRqZy3wi9a1vfL7F0OC/view";
 
   const shell = $("#shell"), mosaic = $("#mosaic"), wires = $("#wires"), log = $("#log");
@@ -802,7 +808,11 @@
     shell.classList.toggle("is-inspecting", on);
     emit("shell:inspect", on ? "on" : "off", inspectBtn);
   }
-  inspectBtn.addEventListener("click", () => setInspect(inspectBtn.getAttribute("aria-pressed") !== "true"));
+  inspectBtn.addEventListener("click", () => {
+    const on = inspectBtn.getAttribute("aria-pressed") !== "true";
+    setInspect(on);
+    track("inspect", { on });
+  });
 
   /* ---------- break it safely ---------- */
   function crash(t) {
@@ -810,6 +820,7 @@
     $(".unplug", t).setAttribute("aria-pressed", "true");
     if (t.dataset.remote === "search") filterStack(""); // the stack keeps working without search
     emit("remote:error", t.dataset.remote, t);
+    track("unplug", { piece: t.dataset.remote });
   }
   function recover(t) {
     const retry = $(".fallback button", t);
@@ -853,8 +864,11 @@
     syncReset();
     emit("theme:change", mode, source);
   }
-  themeSwitch.addEventListener("click", () => setTheme(root.dataset.theme === "dark" ? "light" : "dark", tile("theme")));
-  themeReset.addEventListener("click", () => { saveTheme(null); setTheme(systemTheme(), tile("theme"), false); });
+  themeSwitch.addEventListener("click", () => {
+    setTheme(root.dataset.theme === "dark" ? "light" : "dark", tile("theme"));
+    track("theme_toggle", { mode: root.dataset.theme });
+  });
+  themeReset.addEventListener("click", () => { saveTheme(null); setTheme(systemTheme(), tile("theme"), false); track("theme_reset"); });
   // until the visitor picks a theme, keep following the system live
   systemDark.addEventListener("change", () => { if (!savedTheme()) setTheme(systemTheme(), tile("theme"), false); });
   themeSwitch.setAttribute("aria-checked", root.dataset.theme === "dark");
@@ -866,6 +880,7 @@
       $$(".swatch").forEach((s) => s.setAttribute("aria-pressed", s === sw));
       applyAccent();
       emit("tokens:accent", accent, tile("tokens"));
+      track("accent_change", { accent });
     })
   );
 
@@ -927,6 +942,7 @@
     target.classList.remove("is-updating");
     releaseLabel.textContent = `${titleCase(r.remote)} ${r.to} is live. ${r.note}.`;
     emit("deploy:done", `${r.remote}@${r.to}`, status, [target]);
+    track("ship_release", { piece: r.remote, version: r.to });
     releases.shift();
     showNext();
   }
@@ -991,12 +1007,14 @@
       : "Opening LinkedIn. Send me a message from my profile.";
     say("Talk soon!");
     emit("contact:send", "linkedin", tile("contact"), [tile("profile")]);
+    track("message_linkedin");
     window.open(LINKEDIN, "_blank", "noopener");
   });
   $("#copy-email").addEventListener("click", async () => {
     try { await navigator.clipboard.writeText(EMAIL); statusLine.textContent = `Copied ${EMAIL}. Talk soon!`; say("Talk soon!"); }
     catch { statusLine.textContent = `My email is ${EMAIL}.`; }
     emit("contact:copy", "email", tile("contact"));
+    track("copy_email");
   });
   function cairoTime() {
     const now = new Date();
@@ -1049,11 +1067,12 @@
     pEmpty.hidden = matches.length > 0;
     pInput.setAttribute("aria-activedescendant", matches.length ? "cmd-" + active : "");
   }
-  function openPalette() { pInput.value = ""; active = 0; renderPalette(); palette.showModal(); pInput.focus(); }
+  function openPalette() { pInput.value = ""; active = 0; renderPalette(); palette.showModal(); pInput.focus(); track("palette_open"); }
   function runCommand(i) {
     const c = matches[i]; if (!c) return;
     palette.close();
     emit("palette:run", c.label.toLowerCase(), $(".kbd-btn"));
+    track("palette_command", { command: c.label });
     c.run();
   }
   pInput.addEventListener("input", () => { active = 0; renderPalette(); });
@@ -1080,7 +1099,7 @@
     if (focus) stop.focus();
   }
   stops.forEach((s, i) => {
-    s.addEventListener("click", () => selectStop(s));
+    s.addEventListener("click", () => { selectStop(s); track("experience_city", { city: s.querySelector(".city").textContent }); });
     s.addEventListener("keydown", (e) => {
       const next = { ArrowRight: i + 1, ArrowDown: i + 1, ArrowLeft: i - 1, ArrowUp: i - 1, Home: 0, End: stops.length - 1 }[e.key];
       if (next === undefined) return;
@@ -1113,6 +1132,18 @@
   }
   touchFirst.addEventListener("change", setMailTargets);
   setMailTargets();
+
+  const PROFILES = { "linkedin.com": "linkedin", "github.com": "github", "youtube.com": "youtube", "medium.com": "medium" };
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a[href]");
+    if (!link) return;
+    const href = link.href, from = link.closest("footer") ? "footer" : link.closest("#experience") ? "experience" : link.closest(".t-contact") ? "contact" : "intro";
+    if (href.includes("drive.google.com")) return track("download_cv", { from });
+    if (href.startsWith("mailto:")) return track("email_link", { from });
+    const profile = Object.keys(PROFILES).find((d) => link.hostname.endsWith(d));
+    if (profile) return track("open_profile", { to: PROFILES[profile], from });
+    if (link.closest(".company")) return track("company_link", { company: [...link.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join("").trim() });
+  });
 
   /* ---------- every outside link opens in a new tab ---------- */
   $$('a[href^="http"]').forEach((link) => { link.target = "_blank"; link.rel = "noopener"; });

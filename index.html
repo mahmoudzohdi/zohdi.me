@@ -129,6 +129,8 @@
   }
   a { color: inherit; }
   button { font: inherit; }
+  /* Android Chrome paints a blue box on tap; every control here has its own pressed/selected state instead */
+  a, button, label, [role="tab"], [role="slider"] { -webkit-tap-highlight-color: transparent; }
   :focus-visible { outline: 3px solid var(--faience); outline-offset: 3px; border-radius: 4px; }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   kbd { font: 500 12px/1 var(--mono); padding: 3px 6px; border-radius: 5px; background: var(--surface); box-shadow: 0 0 0 1px var(--line), 0 1px 0 1px var(--line); color: var(--ink); }

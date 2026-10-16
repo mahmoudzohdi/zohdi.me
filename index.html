@@ -1020,7 +1020,8 @@
     const now = new Date();
     // the visitor's own 12h/24h habit, kept in English with Western digits so it reads well in the sentence
     const hour12 = /h1[12]/.test(new Intl.DateTimeFormat(undefined, { hour: "numeric" }).resolvedOptions().hourCycle || "");
-    const time = new Intl.DateTimeFormat("en-US", { timeZone: "Africa/Cairo", hour: "numeric", minute: "2-digit", hour12 }).format(now);
+    // narrow no-break space keeps "AM"/"PM" glued to the time, so it never wraps onto its own line
+    const time = new Intl.DateTimeFormat("en-US", { timeZone: "Africa/Cairo", hour: "numeric", minute: "2-digit", hour12 }).format(now).replace(/\s(?=[AP]M)/, "\u202F");
     const hour = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Cairo", hour: "numeric", hourCycle: "h23" }).format(now));
     $("#cairo").textContent = hour >= 8 && hour < 23
       ? `It's ${time} in Cairo, so I'm probably around.`

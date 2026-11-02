@@ -473,6 +473,7 @@
       <button class="btn btn-quiet" data-say-hello>Say hello</button>
     </div>
     <ul class="links">
+      <li><a href="https://blog.zohdi.me/">Blog</a></li>
       <li><a href="https://www.linkedin.com/in/mahmoudzohdi/">LinkedIn</a></li>
       <li><a href="https://github.com/mahmoudzohdi">GitHub</a></li>
       <li><a href="https://www.youtube.com/user/MahmoudAlaaChannel">YouTube</a></li>
@@ -694,6 +695,7 @@
 <footer class="site-footer">
   <p class="hello">Say hello at <a href="mailto:hello@zohdi.me" data-mailto>hello@zohdi.me</a></p>
   <ul class="links">
+    <li><a href="https://blog.zohdi.me/">Blog</a></li>
     <li><a href="https://www.linkedin.com/in/mahmoudzohdi/">LinkedIn</a></li>
     <li><a href="https://github.com/mahmoudzohdi">GitHub</a></li>
     <li><a href="https://www.youtube.com/user/MahmoudAlaaChannel">YouTube</a></li>
@@ -1044,6 +1046,7 @@
     { label: "Download CV", hint: "Opens Google Drive", run: () => window.open(CV, "_blank", "noopener") },
     { label: "Open LinkedIn", hint: "linkedin.com", run: () => window.open(LINKEDIN, "_blank", "noopener") },
     { label: "Open GitHub", hint: "github.com", run: () => window.open("https://github.com/mahmoudzohdi", "_blank", "noopener") },
+    { label: "Read the blog", hint: "blog.zohdi.me", run: () => { location.href = "https://blog.zohdi.me/"; } },
     { label: "Toggle dark mode", hint: "Theme", run: () => setTheme(root.dataset.theme === "dark" ? "light" : "dark", $(".kbd-btn")) },
     { label: "Inspect the composition", hint: "Show the seams", run: () => setInspect(inspectBtn.getAttribute("aria-pressed") !== "true") },
     { label: "Ship the next release", hint: "Deploy", run: shipNext },
@@ -1136,7 +1139,7 @@
   touchFirst.addEventListener("change", setMailTargets);
   setMailTargets();
 
-  const PROFILES = { "linkedin.com": "linkedin", "github.com": "github", "youtube.com": "youtube", "medium.com": "medium" };
+  const PROFILES = { "blog.zohdi.me": "blog", "linkedin.com": "linkedin", "github.com": "github", "youtube.com": "youtube", "medium.com": "medium" };
   document.addEventListener("click", (e) => {
     const link = e.target.closest("a[href]");
     if (!link) return;
